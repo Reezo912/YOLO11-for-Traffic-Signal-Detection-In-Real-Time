@@ -1,4 +1,5 @@
-from utils import db_connect
-engine = db_connect()
+import numpy as np
+import os
+import requests
 
-# your code here
+PATH = '../data/raw'
