@@ -1,4 +1,5 @@
 __pycache__
 .env
 .learn
-/data
+/data/raw/COCO_Annotation/splits/*.txt
+/data/raw/COCO_Annotation/annotations/*.json
