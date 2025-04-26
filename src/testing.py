@@ -1,6 +1,7 @@
 import os
 import json
 import tqdm    # libreria para mostrar progresos en python
+import typing
 
 from pathlib import Path    # con esto referenciamos a la ruta del proyecto
 
@@ -56,9 +57,59 @@ for dato in lista_tipos_datos:
 SPLITS_DIR = DATA_DIR / './COCO_Annotation/splits'
 SPLITS_DIR = SPLITS_DIR.resolve()
 
+splits = {}  # inicializo mi diccionario que contendra las ids de train/val/test
+
 for name in lista_split:
     split_file = SPLITS_DIR / (name+'.txt')
     with open(split_file, 'r') as f:
-        img_id = [line.strip() for line in f]
+        splits[name] = [ln.strip() for ln in f if ln.strip()]
 
-print(img_id)
+
+print(splits.keys())  # compruebo que me este extrayendo correctamente los nombres
+
+
+"""
+En los .json las cajas de Object Location, indican los pixeles absolutos de la imagen para:
+    -xmin
+    -ymin
+    -xmax
+    -ymax
+
+YOLO necesita que esten en otro formato tal que: <class_id> <x_center> <y_center> <width> <height>
+Con los valores normalizados entre 0 y 1, no pixeles absolutos.
+
+En la siguiente funcion realizare la conversion
+    """
+
+def coco2yolo(box: dict, ancho: int, alto: int)-> typing.Tuple[float, float, float, float]:
+    """
+    Siendo las variables aceptadas box, ancho y alto
+        - box: diccionario bbox del archivo .json
+        - ancho: dimension x de mi imagen 
+        - alto: dimension y de mi imagen
+    """
+    xmin, ymin, xmax, ymax = box['xmin'], box['ymin'], box['xmax'], box['ymax'] # extraigo las coordenadas del .json
+    x_centro = (xmin + xmax) / 2 / ancho      
+    y_centro = (ymin + ymax) / 2 / alto      
+    w   = (xmax - xmin) / ancho          
+    h   = (ymax - ymin) / alto          
+    return x_centro, y_centro, w, h
+
+
+"""
+En mis .json, tengo el tipo de senal relacionada con un numero.
+
+Tengo que sacar estos tipos junto con su numero y meterlos en un diccionario.
+
+Mas adelante necesitare pasarlos a una lista en la que los indices sean los numeros enteros y esta
+estructura de datos es la que le servira a YOLO.
+
+No creo una lista directamente porque seria muy poco efectivo desde un punto de vista computacional,
+habria que recorrer dicha lista por cada imagen que me encuentre, buscando si ya he apuntado ese label.
+"""
+
+
+# inicializo mi diccionario que relacionara label con el numero del json
+label2id = {}
+
+id2label = []  
