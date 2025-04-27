@@ -157,7 +157,7 @@ for split, ids in splits.items():
 
     for img_id in tqdm(ids, desc=f'{split:5}', ncols=80):  # tqdm es una libreria para mostrar una barra de progreso, ids seria donde estamos contando img_id
         ann_path = ANN_DIR / f'{img_id}.json'
-        
+
         with open(ann_path) as f:
             ann = json.load(f)
 
@@ -199,4 +199,4 @@ with open(yaml_path, 'w') as f:
     for i, name in enumerate(id2label):
         f.write(f"  {i}: {name}\n")
 
-print("✅ Conversión terminada.  Data YAML en:", yaml_path)
+print("COCO to YOLO conversion finalizada.  Data YAML en:", yaml_path)
