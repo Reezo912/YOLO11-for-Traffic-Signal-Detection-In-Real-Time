@@ -3,3 +3,5 @@ __pycache__
 .learn
 /data/raw/COCO_Annotation/splits/*.txt
 /data/raw/COCO_Annotation/annotations/*.json
+/data/raw/images/
+/data/raw/labels/
