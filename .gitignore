@@ -5,3 +5,5 @@ __pycache__
 /data/raw/COCO_Annotation/annotations/*.json
 /data/raw/images/
 /data/raw/labels/
+/runs
+yolov8s.pt
