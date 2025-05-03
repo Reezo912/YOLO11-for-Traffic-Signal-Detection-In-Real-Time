@@ -344,103 +344,141 @@ import os
 import streamlit as st
 
 # Configuración inicial
-st.set_page_config(page_title="Detector de Señales de Tráfico", layout="wide")
+st.set_page_config(page_title="Decode Traffic Signs", layout="wide")
 
 # Estilos personalizados
 st.markdown("""
     <style>
     .stApp {
-        background-color: #C0C0C0;
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
+        background-color: #000000; /* Color de fondo del cuerpo de la app (Negro) */
+        padding: 2rem; /* Espacio alrededor de la caja principal */
     }
 
-    .main-box {
-        background-color: white;
-        width: 1304px;
-        min-height: 580px;
-        max-height: 80vh;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        overflow-y: auto;
+    /* Estilo para el contenedor principal que envuelve todo el contenido */
+    div[data-testid="stVerticalBlock"] { /* Este es el main container creado por st.container() */
+        background-color: #FFFAF0; /* Fondo de la caja principal (Floral White) */
+        padding: 2rem; /* Relleno dentro de la caja principal */
+        border-radius: 15px; /* Bordes redondeados */
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra sutil */
     }
 
-    h1 {
-        text-align: center;
-        color: #ff4b4b;
-        font-size: 3em;
+    /* Asegurar que los elementos dentro del contenedor principal tengan espaciado */
+    div[data-testid="stVerticalBlock"] > h1 {
         margin-bottom: 0.2em;
     }
-    .intro-text {
-        text-align: center;
-        font-size: 1.2em;
-        color: #333333;
+    div[data-testid="stVerticalBlock"] > div.intro-text {
         margin-bottom: 2em;
     }
-    .info-box {
-        background-color: #f0f2f6;
+
+    /* Estilo para el contenedor que tiene las columnas (el padre de col1 y col2) */
+    div[data-testid="stVerticalBlock"] > div[data-testid="stHorizontalBlock"] {
+        margin-top: 1.5rem; /* Espacio encima de las columnas */
+        gap: 2rem; /* Espacio entre las columnas */
+        display: flex; /* Lo convertimos en un contenedor flex */
+        align-items: stretch; /* ¡Importante! Hace que los hijos (las columnas) se estiren a la misma altura */
+    }
+
+    /* Estilo para cada columna individual */
+    div[data-testid="stVerticalBlock"] > div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlock"] {
+        /* Este es cada div de columna (col1, col2) */
+        display: flex; /* Convertimos la columna en un contenedor flex */
+        flex-direction: column; /* Apilamos el contenido verticalmente dentro de la columna */
+        /* height: 100%; */ /* No es necesario si usamos flex-grow en los hijos y el padre se estira */
+    }
+
+    /* Estilo para las cajas de información y del uploader dentro de las columnas */
+    .info-box,
+    .file-uploader-box {
+        flex-grow: 1; /* ¡Importante! Hace que estas cajas se expandan para llenar la altura disponible en su columna */
+        /* height: 100%; */ /* Puede que no sea necesario con flex-grow */
+        box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
         padding: 20px;
         border-radius: 10px;
-        height: 100%;
+        /* Los colores de fondo específicos se definen a continuación */
+    }
+
+    /* Colores de fondo específicos para las cajas */
+    .info-box {
+         background-color: #f0f2f6; /* Color gris claro */
     }
     .file-uploader-box {
-        background-color: #ffffff;
+        background-color: #ffffff; /* Color blanco */
         border: 2px dashed #ccc;
-        padding: 20px;
-        border-radius: 10px;
         text-align: center;
-        height: 100%;
     }
+
+    /* Ajuste para el contenido dentro de file-uploader-box para ayudar al centrado vertical */
+    .file-uploader-box > div { /* Apunta al div de markdown dentro de file-uploader-box */
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         height: 100%; /* Asegura que este div llene su contenedor padre (.file-uploader-box) */
+         box-sizing: border-box;
+    }
+
+    /* Espacio encima del expander */
+    div[data-testid="stVerticalBlock"] > div[data-testid="stExpander"] {
+        margin-top: 1.5rem;
+    }
+
+    /* Puedes necesitar ajustar el estilo del widget st.file_uploader en sí mismo
+       para que su área de "drag and drop" también se adapte a la altura si es necesario,
+       pero esto a veces es complejo con los componentes internos de Streamlit.
+       La altura de la caja principal del uploader ya se controla con flex-grow.
+    */
+
     </style>
 """, unsafe_allow_html=True)
 
+# Usa st.container() para crear el contenedor principal
+# Todo lo que esté dentro de este 'with' block estará contenido en este div
+with st.container():
+    # Título centrado
+    st.markdown("<h1>🚦 Decode Traffic Signs</h1>", unsafe_allow_html=True)
 
-# Contenedor blanco de todo el contenido
-st.markdown('<div class="main-box">', unsafe_allow_html=True)
-
-# Título centrado
-st.markdown("<h1>🚦 Detectar y Clasificar Señales de Tráfico</h1>", unsafe_allow_html=True)
-
-# Texto explicativo centrado
-st.markdown("""
-<div class='intro-text'>
-    Este modelo <strong>YOLOv8</strong> te ayudará a identificar y clasificar señales de tráfico, 
-    las cuales categorizará en las siguientes clases detectadas: 
-    <strong>Advertencia</strong>, <strong>Prohibición</strong>, <strong>Obligación</strong> e <strong>Información</strong>.
-</div>
-""", unsafe_allow_html=True)
-
-# Título encima de las columnas
-st.markdown("### 📸 Subir una imagen")
-
-# Columnas simétricas
-col1, col2 = st.columns(2)
-
-with col1:
+    # Texto explicativo centrado
     st.markdown("""
-    <div class='info-box'>
-        <strong>YoloV8</strong><br><br>
-        Nuestro modelo entrenado con YOLO detectará y clasificará las señales de tráfico presentes en ella.
+    <div class='intro-text'>
+        Este modelo <strong>YOLOv8</strong> te ayudará a identificar y clasificar señales de tráfico,
+        las cuales categorizará en las siguientes clases detectadas:
+        <strong>Advertencia</strong>, <strong>Prohibición</strong>, <strong>Obligación</strong> e <strong>Información</strong>.
     </div>
     """, unsafe_allow_html=True)
 
-with col2:
-    st.markdown("""
-    <div class='file-uploader-box'>
-        Usa el siguiente campo para arrastrar y soltar tu imagen o haz clic para seleccionarla.
-    </div>
-    """, unsafe_allow_html=True)
-    uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+    # Título encima de las columnas
+    st.markdown("### 📸 Subir una imagen")
 
-# Desplegable con más información
-with st.expander("⬇️ Más info acerca de este proyecto"):
-    st.markdown("""
-    Este proyecto utiliza el modelo <strong>YOLOv8</strong> entrenado con un dataset de señales de tráfico.  
-    Está diseñado para funcionar en aplicaciones interactivas como esta, permitiendo detección en imágenes de forma rápida.  
-    Se implementó usando <strong>Streamlit</strong> para la interfaz y <strong>OpenCV</strong> para el procesamiento de imágenes.  
-    """, unsafe_allow_html=True)
+    # Columnas simétricas
+    col1, col2 = st.columns(2)
 
-# Cierre del contenedor principal
-st.markdown('</div>', unsafe_allow_html=True)
+    with col1:
+        st.markdown("""
+        <div class='info-box'>
+            <strong>YoloV8</strong><br><br>
+            Nuestro modelo entrenado con YOLO detectar\u00E1 y clasificar\u00E1 las se\u00F1ales de tr\u00E1fico presentes en ella.
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        # Envuelve el texto del file uploader en la clase file-uploader-box
+        # El widget st.file_uploader se renderizará después de este div de markdown, dentro de la columna.
+        # El flex-grow en .file-uploader-box hará que esta caja se expanda,
+        # y el widget de Streamlit se ubicará dentro de esa caja expandida.
+        st.markdown("""
+        <div class='file-uploader-box'>
+            <p>Usa el siguiente campo para arrastrar y soltar tu imagen o haz clic para seleccionarla.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+
+
+    # Desplegable con más información
+    with st.expander("⬇️ Más info acerca de este proyecto"):
+        st.markdown("""
+        Este proyecto utiliza el modelo <strong>YOLOv8</strong> entrenado con un dataset de señales de tráfico.
+        Est\u00E1 dise\u00F1ado para funcionar en aplicaciones interactivas como esta, permitiendo detecci\u00F3n en im\u00E1genes de forma r\u00E1pida.
+        Se implementó usando <strong>Streamlit</strong> para la interfaz y <strong>OpenCV</strong> para el procesamiento de im\u00E1genes.
+        """, unsafe_allow_html=True)
+
+# El bloque 'with st.container():' cierra automáticamente el contenedor
