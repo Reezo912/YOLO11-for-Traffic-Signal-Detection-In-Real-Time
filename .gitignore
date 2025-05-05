@@ -6,4 +6,4 @@ __pycache__
 /data/raw/images/
 /data/raw/labels/
 /runs
-yolov8s.pt
+yolov11s.pt
