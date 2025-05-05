@@ -1,5 +1,9 @@
 __pycache__
 .env
 .learn
-/data
+/data/raw/COCO_Annotation/splits/*.txt
+/data/raw/COCO_Annotation/annotations/*.json
+/data/raw/images/
+/data/raw/labels/
 /runs
+yolov11s.pt
