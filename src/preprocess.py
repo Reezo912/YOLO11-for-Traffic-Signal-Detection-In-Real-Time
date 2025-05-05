@@ -1,194 +1,99 @@
 import os
+import zipfile
 import json
-from tqdm import tqdm   # libreria para mostrar progresos en python
-import typing
-from pathlib import Path    # con esto referenciamos a la ruta del proyecto
+import shutil
+from tqdm import tqdm
+from PIL import Image
+import cv2
 
+# Rutas
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAW_DIR = os.path.join(BASE_DIR, '..', 'data', 'raw')
+OUTPUT_DIR = os.path.join(BASE_DIR, '..', 'data', 'MTSD')
+ANNOTATIONS_DIR = os.path.join(RAW_DIR, 'annotations')
 
-"""
-Este script nos permite convertir las anotaciones del dataset de formato COCO -> Common Objects in Context
-a formato YOLO.
+# Tamaño fijo para YOLO
+IMAGE_SIZE = (640, 640)
 
-El dataset ya tiene divididos las imagenes en train/validation/test y nos facilita unos .txt junto con las annotations,
-usaremos estos .txt para distribuir las anotaciones entre cada una de nuestras clases. 
+# Crear estructura de carpetas
+def create_folders():
+    for split in ['train', 'val', 'test']:
+        os.makedirs(os.path.join(OUTPUT_DIR, 'images', split), exist_ok=True)
+        os.makedirs(os.path.join(OUTPUT_DIR, 'labels', split), exist_ok=True)
 
-"""
+# Descomprimir todos los zip de imágenes
+def unzip_files():
+    for file in os.listdir(RAW_DIR):
+        if file.endswith('.zip') and 'annotation' not in file:
+            zip_path = os.path.join(RAW_DIR, file)
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(RAW_DIR)
 
-BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / '../data/raw'
-DATA_DIR = DATA_DIR.resolve()
+# Determinar a qué split pertenece una imagen
+def get_split_from_filename(filename):
+    if 'test' in filename:
+        return 'test'
+    elif 'val' in filename:
+        return 'val'
+    else:
+        return 'train'
 
-lista_tipos_datos = ['labels', 'images']
-lista_split = ['train', 'val', 'test']
+# Procesar una imagen y sus anotaciones
+def process_image(json_path):
+    with open(json_path, 'r') as f:
+        data = json.load(f)
 
+    image_filename = data['image']['filename']
+    image_path = os.path.join(RAW_DIR, image_filename)
 
-# creo las 3 carpetas en las que dividire mis labels
-for dato in lista_tipos_datos:
-    for carpeta in lista_split:
-        (DATA_DIR / dato / carpeta).mkdir(parents=True, exist_ok=True)
-"""Se que es un doble bucle pero no hay riesgo de que sea infinito. Es horrible pero efectivo"""
+    if not os.path.exists(image_path):
+        print(f"Imagen no encontrada: {image_path}")
+        return
 
-SPLITS_DIR = DATA_DIR / './COCO_Annotation/splits'
-SPLITS_DIR = SPLITS_DIR.resolve()
+    # Cargar y redimensionar imagen
+    img = cv2.imread(image_path)
+    if img is None:
+        print(f"Error leyendo imagen: {image_path}")
+        return
+    img_resized = cv2.resize(img, IMAGE_SIZE)
 
-splits = {}  # inicializo mi diccionario que contendra las ids de train/val/test
+    split = get_split_from_filename(image_filename)
+    new_image_path = os.path.join(OUTPUT_DIR, 'images', split, image_filename)
 
-for name in lista_split:
-    split_file = SPLITS_DIR / (name + '.txt')
-    with open(split_file, 'r') as f:
-        splits[name] = [ln.strip() for ln in f if ln.strip()]
+    # Guardar imagen redimensionada
+    cv2.imwrite(new_image_path, img_resized)
 
+    # Crear archivo .txt de anotaciones
+    label_path = os.path.join(OUTPUT_DIR, 'labels', split, os.path.splitext(image_filename)[0] + '.txt')
+    img_height, img_width = img.shape[:2]
 
-print(splits.keys())  # compruebo que me este extrayendo correctamente los nombres
+    with open(label_path, 'w') as label_file:
+        for annotation in data['annotations']:
+            bbox = annotation['bbox']
+            category_id = annotation['category_id']
 
+            x_min, y_min, width, height = bbox
+            x_center = (x_min + width / 2) / img_width
+            y_center = (y_min + height / 2) / img_height
+            width_norm = width / img_width
+            height_norm = height / img_height
 
-"""
-En los .json las cajas de Object Location, indican los pixeles absolutos de la imagen para:
-    -xmin
-    -ymin
-    -xmax
-    -ymax
+            label_file.write(f"{category_id} {x_center:.6f} {y_center:.6f} {width_norm:.6f} {height_norm:.6f}\n")
 
-YOLO necesita que esten en otro formato tal que: <class_id> <x_center> <y_center> <width> <height>
-Con los valores normalizados entre 0 y 1, no pixeles absolutos.
+def main():
+    print("🔧 Creando carpetas de salida...")
+    create_folders()
 
-En la siguiente funcion realizare la conversion
-    """
+    print("🗜️ Descomprimiendo archivos zip de imágenes...")
+    unzip_files()
 
-def coco2yolo(box: dict, ancho: int, alto: int)-> typing.Tuple[float, float, float, float]:
-    """
-    Siendo las variables aceptadas box, ancho y alto
-        - box: diccionario bbox del archivo .json
-        - ancho: dimension x de mi imagen 
-        - alto: dimension y de mi imagen
-    """
-    xmin, ymin, xmax, ymax = box['xmin'], box['ymin'], box['xmax'], box['ymax'] # extraigo las coordenadas del .json
-    x_centro = (xmin + xmax) / 2 / ancho      
-    y_centro = (ymin + ymax) / 2 / alto      
-    wide   = (xmax - xmin) / ancho          
-    height   = (ymax - ymin) / alto          
-    return x_centro, y_centro, wide, height
+    print("🖼️ Procesando imágenes y anotaciones...")
+    annotation_files = [os.path.join(ANNOTATIONS_DIR, f) for f in os.listdir(ANNOTATIONS_DIR) if f.endswith('.json')]
 
+    for json_file in tqdm(annotation_files, desc="Procesando"):
+        process_image(json_file)
 
-"""
-En mis .json, tengo el tipo de senal relacionada con un numero.
+    print("✅ Preprocesamiento completado.")
 
-Tengo que sacar estos tipos junto con su numero y meterlos en un diccionario.
-
-Mas adelante necesitare pasarlos a una lista en la que los indices sean los numeros enteros y esta
-estructura de datos es la que le servira a YOLO.
-
-No creo una lista directamente porque seria muy poco efectivo desde un punto de vista computacional,
-habria que recorrer dicha lista por cada imagen que me encuentre, buscando si ya he apuntado ese label.
-"""
-
-
-# inicializo mi diccionario que relacionara label con el numero del json
-ANN_DIR = DATA_DIR / './COCO_Annotation/annotations/'
-ANN_DIR = ANN_DIR.resolve()
-
-label2id = {}
-id2label = []
-
-
-""" 
-Para cada split ('train', 'val', 'test'):
-    Para cada imagen en el split:
-        Construir la ruta al archivo JSON de la imagen
-        Construir la ruta de destino del archivo .txt
-
-        Abrir y leer el JSON de anotaciones
-        Obtener el ancho y alto de la imagen
-
-        Inicializar una lista vacía para guardar las líneas YOLO
-
-        Para cada objeto anotado en la imagen:
-            Si el objeto es falso (dummy):
-                Saltarlo
-
-            Leer el nombre de la clase (label)
-
-            Si la clase no existe en el diccionario:
-                Asignarle un nuevo número de clase
-                Guardar su nombre en la lista de clases
-
-            Convertir el bounding box a formato YOLO
-                (calcular centro x, centro y, ancho, alto normalizados)
-
-            Crear una línea con el formato YOLO
-            Añadir esa línea a la lista
-
-        Escribir todas las líneas en un archivo .txt correspondiente a la imagen
-
- """
-
-archivos_faltantes = 0  # <-- MUY IMPORTANTE
-
-for split, ids in splits.items():
-    if split == 'test':
-        continue
-
-    for img_id in tqdm(ids, desc=f'{split:5}', ncols=80):
-        ann_path = ANN_DIR / f'{img_id}.json'
-
-        if not ann_path.exists():
-            print(f"[ADVERTENCIA] No se encontró el archivo: {ann_path.name} en la ruta: {ann_path}")
-            archivos_faltantes += 1
-            continue
-
-        try:
-            with open(ann_path) as f:
-                ann = json.load(f)
-        except json.JSONDecodeError:
-            print(f"[ADVERTENCIA] Error al decodificar JSON para el archivo: {ann_path.name} en la ruta: {ann_path}")
-            continue
-        except Exception as e:
-            print(f"[ADVERTENCIA] Error inesperado al intentar leer el archivo: {ann_path.name} en la ruta: {ann_path}: {e}")
-            continue
-
-        if 'width' not in ann or 'height' not in ann:
-            print(f"[ADVERTENCIA] El archivo {ann_path.name} no contiene las claves 'width' o 'height'.")
-            continue
-
-        # leo las dimensiones de la imagen en el .json
-        ancho, alto = ann['width'], ann['height']
-
-        # inicializo la lista donde guardare los datos
-        YOLO_data = []
-
-        for obj in ann['objects']:    # objects es el nombre de la key en el diccionario .json
-            label = obj['label']      # extraigo el label
-
-            if label not in label2id:
-                label2id[label] = len(label2id)  # voy a usar la longitud de la lista, asi siempre me creara el siguiente integer.
-                id2label.append(label)           # lo guardo en mi lista
-        
-            # extraigo el id de cada foto
-            cls_id = label2id[label]
-
-            x_center, y_center, bbox_ancho, bbox_alto = coco2yolo(obj['bbox'], ancho, alto)   # paso la bbox del json y las dimensiones de la foto a mi funcion coco2yolo
-
-            # Creo mis lineas en formato YOLO
-            line = f"{cls_id} {x_center:.6f} {y_center:.6f} {bbox_ancho:.6f} {bbox_alto:.6f}"
-            YOLO_data.append(line)
-
-        # guardo toda la info transformada en un .txt para  YOLO
-        txt_path = DATA_DIR / 'labels' / split / f'{img_id}.txt'
-        with open(txt_path, 'w') as f:
-            f.write('\n'.join(YOLO_data))
-
-print(f"\nProceso terminado ✅")
-print(f"Archivos de anotaciones faltantes: {archivos_faltantes}")
-
-# tengo que crear un archivo yaml donde guardare los datos de mis etiquetas
-yaml_path = DATA_DIR / 'labels' / 'data.yaml'
-with open(yaml_path, 'w') as f:
-    f.write(f"path: {DATA_DIR}\n")
-    f.write("train: images/train\nval: images/val\ntest: images/test\n")
-    f.write(f"nc: {len(id2label)}\n")
-    f.write("names:\n")
-    for i, name in enumerate(id2label):
-        f.write(f"  {i}: {name}\n")
-
-print("COCO to YOLO conversion finalizada.  Data YAML en:", yaml_path)
-
+if __name__ == "__main__":
+    main()
