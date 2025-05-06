@@ -1,10 +1,14 @@
 import streamlit as st
-import cv2
-import numpy as np
 from PIL import Image
 from ultralytics import YOLO
 import tempfile
 from pathlib  import Path
+from prediction_app import SignalDetector
+import numpy as np
+import cv2 as cv
+import os
+import time
+
 
 # Configuración de la página
 st.set_page_config(page_title="Decode Traffic Signs", layout="wide")
@@ -79,47 +83,102 @@ with st.container():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("""
-            <div class='info-box'>
-                <strong>YoloV8</strong><br><br>
-                Nuestro modelo entrenado con YOLO detectará y clasificará las señales de tráfico presentes en ella.
-            </div>
-        """, unsafe_allow_html=True)
+            # Ruta de guardado
+            save_dir = "./data/processed"
+            os.makedirs(save_dir, exist_ok=True)
+
+            # Borrado de ficheros en ruta de guardado (como si fuese una cache)
+            for filename in os.listdir(save_dir):
+                file_path = os.path.join(save_dir, filename)
+                if os.path.isfile(file_path):
+                    os.remove(file_path)
+
+            # Carga del archivo y guardado en disco
+            uploaded_file = st.file_uploader("Admite fotos o videos", type=["jpg", "jpeg", "png", "mp4"])
+            if uploaded_file is not None:
+                save_path = os.path.join(save_dir, uploaded_file.name)
+                with open(save_path, "wb") as f:
+                    f.write(uploaded_file.getbuffer())
+                st.success(f"Debug save {save_path}")
+
+                if uploaded_file is not None:
+                    if uploaded_file.type.startswith("image"):
+                        image = Image.open(uploaded_file)
+                        st.image(image, caption="Imagen original", use_container_width=True)
+        
 
     with col2:
         st.markdown("""
-            <div class='file-uploader-box'>
-                <p>Usa el siguiente campo para arrastrar y soltar tu imagen o haz clic para seleccionarla.</p>
-            </div>
-        """, unsafe_allow_html=True)
-        uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+    <style>
+    .description-box {
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: #f9f9f9;
+        margin-bottom: 1rem;
+    }
+    .description-box p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #333;
+    }
+    </style>
 
-    if uploaded_file:
-        image = Image.open(uploaded_file)
-        st.image(image, caption="Imagen cargada", use_column_width=True)
+    <div class='description-box'>
+        <p>El modelo hará un análisis del archivo y aquí podrás verlo en tiempo real.</p>
+    </div>
+""", unsafe_allow_html=True)
 
-        # Botón real de Streamlit con estilo
-        if st.button("🔍 Analizar"):
-            if image.mode == "RGBA":
-                image = image.convert("RGB")
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
-                image.save(tmp.name)
-                temp_image_path = tmp.name
-    
-            results = model.predict(source=temp_image_path, save=False, imgsz=1024, conf=0.1)
-            result_bgr = results[0].plot()
-            result_rgb = cv2.cvtColor(result_bgr, cv2.COLOR_BGR2RGB)
-            st.image(result_rgb, caption="Resultado del análisis", use_column_width=True)
+            # Boton para analizar el archivo
+        if st.button("🔍 Analizar") and uploaded_file is not None:
+            detector = SignalDetector(MODEL_DIR / model_version)
 
-            st.markdown("### 📋 Detalles de los objetos detectados")
-            for box in results[0].boxes:
-                cls = int(box.cls[0])
-                conf = float(box.conf[0])
-                st.write(f"🔹 Clase: {model.names[cls]}, Confianza: {conf:.2f}")
+            # ───── Procesar IMAGEN ───────────────────────────
+            if uploaded_file.type.startswith("image"):
+                img = Image.open(save_path)              # PIL
+                rgb = np.asarray(img.convert("RGB"))     # RGB
+                bgr = cv.cvtColor(rgb, cv.COLOR_RGB2BGR) # YOLO quiere BGR
+                out = detector.predict_frame(bgr, imgsz=1024, conf=0.5)
+                st.image(out, caption="Resultado", use_container_width=True)
+
+
+
+
+# TODO sustituir el video en tiempo real por procesado de video y poder descargarlo posteriormente.
+
+
+
+            # ───── Procesar VÍDEO “en tiempo real” ───────────
+            elif uploaded_file.type.startswith("video"):
+                cap = cv.VideoCapture(save_path)
+                stframe   = st.empty()                # contenedor para la imagen
+                progress  = st.progress(0)            # barra opcional
+                total     = int(cap.get(cv.CAP_PROP_FRAME_COUNT))
+
+                frame_id = 0
+                while cap.isOpened():
+                    ret, frame = cap.read()
+                    if not ret:
+                        break
+
+                    annotated = detector.predict_frame(frame, imgsz=1024, conf=0.6)
+                    stframe.image(annotated, channels="RGB", use_container_width=True)
+
+                    frame_id += 1
+                    progress.progress(frame_id / total)
+
+                    # Ajusta a tu gusto: 0 = lo más rápido que aguante la CPU/GPU
+                    # o sleep(1/fps) para respetar la velocidad del vídeo original
+                    cv.waitKey(1)
+
+                cap.release()
+                progress.empty()
+            
+            
 
     with st.expander("⬇️ Más info acerca de este proyecto"):
         st.markdown("""
-        Este proyecto utiliza el modelo <strong>YOLOv8</strong> entrenado con un dataset de señales de tráfico.
+        Este proyecto utiliza el modelo <strong>YOLOv11</strong> entrenado con un dataset de señales de tráfico.
         Está diseñado para funcionar en aplicaciones interactivas como esta, permitiendo detección en imágenes de forma rápida.
         Se implementó usando <strong>Streamlit</strong> para la interfaz y <strong>OpenCV</strong> para el procesamiento de imágenes.
         """, unsafe_allow_html=True)
