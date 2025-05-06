@@ -106,7 +106,7 @@ with st.container():
                 image.save(tmp.name)
                 temp_image_path = tmp.name
     
-            results = model.predict(source=temp_image_path, save=False, imgsz=1024, conf=0.5)
+            results = model.predict(source=temp_image_path, save=False, imgsz=1024, conf=0.1)
             result_bgr = results[0].plot()
             result_rgb = cv2.cvtColor(result_bgr, cv2.COLOR_BGR2RGB)
             st.image(result_rgb, caption="Resultado del análisis", use_column_width=True)
