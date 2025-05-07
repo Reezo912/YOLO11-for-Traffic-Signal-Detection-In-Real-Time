@@ -100,7 +100,7 @@ class SignalDetector:
             iou=iou
         )
         annotated_bgr = results[0].plot()
-        return cv2.cvtColor(annotated_bgr, cv2.COLOR_BGR2RGB)
+        return cv2.cvtColor(annotated_bgr, cv2.COLOR_BGR2RGB), results
 
     def plot_image(
         self,
