@@ -7,16 +7,13 @@ Objetivo
 - Mejorar mAP50‑95 y precisión, reduciendo falsos positivos.
 - No superar ~20 h totales (≈ 100 epochs × 16 min/epoch).
 
-Principales mejoras
--------------------
-1. **AdamW** + *warm‑up* + *cosine LR* para convergencia estable.
-2. **EMA** de pesos durante todo el entrenamiento (decay 0.9998→0.9999).
-3. **Mosaic** prolongado + **MixUp** + **Copy‑Paste** (probabilidades moderadas).
-4. **Label smoothing = 0.1** constante.
-5. **Early‑Stopping** (`patience = 20`).
-6. Fine‑tuning a 1280 px solo en las últimas 10 épocas sin augmentaciones pesadas.
-
-Se asume Ultralytics ≥ v8.1, donde estos argumentos están soportados.
+Cambios clave (versión SGD)
+---------------------------
+1. **SGD** + *momentum* 0.90 y *warm‑up* lineal 3 épocas.
+2. **Cosine LR** desde 0.01 → 1e‑5 (fase A) y 0.002 → 1e‑5 (fase B).
+3. **Weight decay 5e‑4** (igual que en AdamW).
+4. **cls = 1.0** para equilibrar la pérdida de clasificación.
+5. Resto de ajustes idénticos a la versión original.
 """
 
 from ultralytics import YOLO, settings
@@ -32,20 +29,26 @@ torch.backends.cuda.matmul.allow_tf32 = True
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
 
 # ───────────────────────────── FASE A (0‑90) · 1024 px ────────────────────────────
-model = YOLO("yolo11s.pt")
- 
+#model = YOLO("yolo11s.pt")
+model = YOLO("./runs/detect/train2/weights/last.pt")
+
 results_A = model.train(
+    resume = True,
     # Datos & duración
     data=DATA_PATH,
     imgsz=1024,
     epochs=90,                 # 0‑90 (90 épocas)
-    batch=-1,                 # 80 % de VRAM
+    batch=-1,                  # 80 % de VRAM (dinámico)
+    workers=16,
 
     # Optimizador & LR
-    optimizer="AdamW",
-    lr0=0.001,                 # LR base
+    optimizer="SGD",
+    lr0=0.01,                  # LR base para SGD
+    momentum=0.937,             # probar también 0.937 en un grid‑search
     cos_lr=True,               # Scheduler coseno desde lr0→1e‑5
-    weight_decay=5e-4,         # Decoupled (AdamW)
+    warmup_epochs=0,           # warm‑up lineal 3 épocas
+    weight_decay=5e-4,         # igual que antes
+    cls=1.0,                   # peso de la pérdida de clasificación
 
     # Augmentaciones
     mosaic=0.20,               # prob. 20 % Mosaic
@@ -59,25 +62,30 @@ results_A = model.train(
 
     # Otros
     patience=20,              # *Early‑stopping* mAP
-    amp=True,
+    amp=False,
     plots=True,
     seed=42,
 )
 
 # ──────────────────────── FASE B (90‑100) · 1280 px (Fine‑tune) ─────────────────────
 # Carga los últimos pesos y aumenta la resolución para afinar detalles.
-model = YOLO("../runs/detect/train2/weights/last.pt")
+model = YOLO("./runs/detect/train2/weights/last.pt")
 
 results_B = model.train(
-    resume=True,               # continúa el histórico (epoch 90)
+    data=DATA_PATH,
     imgsz=1280,                # resolución mayor
-    epochs=100,               # 90→100 (+10 épocas)
-    batch=-1,
+    epochs=12,                # 90→100 (+10 épocas)
+    batch=6,
+    workers=16,
 
-    # Optimizador & LR más bajo (continúa coseno)
-    lr0=0.0005,
+    # Optimizador & LR (SGD continuo)
+    optimizer="SGD",
+    lr0=0.002,                 # LR base más bajo para fine‑tuning
+    momentum=0.937,
     cos_lr=True,
-    warmup_epochs=0,           # sin warm‑up adicional
+    warmup_epochs=1,           # evita picos de gradiente al cambiar el tamano del batch
+    weight_decay=5e-4,
+    cls=1.0,
 
     # Augmentaciones desactivadas para pulido
     mosaic=0,
@@ -87,6 +95,7 @@ results_B = model.train(
     label_smoothing=0.1,
     patience=10,
     amp=True,
+    save_dir="runs/detect/train3"
 )
 
 # ───────────────────────────── Validación final ─────────────────────────────────────

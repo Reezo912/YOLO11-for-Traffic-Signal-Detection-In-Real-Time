@@ -7,4 +7,4 @@ __pycache__
 /data/raw/labels/
 /runs
 yolov11s.pt
-/data/processed
+data/processed/*.mp4
