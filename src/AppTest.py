@@ -15,6 +15,7 @@ Ajustes:
     - Toca IMG_SIZE, CONF o IOU si quieres otros valores.
 """
 from pathlib import Path
+import time
 
 import cv2
 import numpy as np
@@ -33,8 +34,8 @@ from PySide6.QtWidgets import (
 #  AJUSTES RÁPIDOS
 # ────────────────────────────────────────────────────────────────
 MODEL_PATH = Path("./models/best.pt")   # cambia si lo tienes en otro sitio
-IMG_SIZE   = 1024                        # resolución de entrada YOLO
-CONF       = 0.5                        # umbral de confianza
+IMG_SIZE   = 640                        # resolución de entrada YOLO
+CONF       = 0.25                        # umbral de confianza
 IOU        = 0.7                       # NMS IoU
 DEVICE     = "cpu"                      # "mps" en Mac M‑series; "cpu" si fallase
 
@@ -42,12 +43,12 @@ DEVICE     = "cpu"                      # "mps" en Mac M‑series; "cpu" si fall
 #  MODELO
 # ────────────────────────────────────────────────────────────────
 try:
-    from prediction_app import SignalDetector  # tu clase
+    from Model_predictor import SignalDetector  # tu clase
 except ImportError:
     raise SystemExit("No se encontró prediction_app.SignalDetector. Asegúrate de que está en PYTHONPATH.")
 
 print("Cargando modelo… (puede tardar unos segundos)")
-DETECTOR = SignalDetector(MODEL_PATH)
+DETECTOR = SignalDetector(MODEL_PATH, [3])
 print("Modelo cargado ✔")
 
 # ────────────────────────────────────────────────────────────────
@@ -63,18 +64,20 @@ class VideoThread(QThread):
 
     def run(self):
         cap = cv2.VideoCapture(self.video_path)
-        if not cap.isOpened():
-            print(f"❌ No se pudo abrir {self.video_path}")
-            return
+        fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+        delay = 1.0 / fps
         while self._running:
+            t0 = time.time()
             ret, frame = cap.read()
             if not ret:
-                break  # fin de vídeo
+                break
             annotated = DETECTOR.predict_frame(frame, imgsz=IMG_SIZE, conf=CONF, iou=IOU)
             self.frame_ready.emit(annotated)
-            # Controla FPS con espera mínima (aquí ~30 fps máximo)
-            if cv2.waitKey(1) == 27:
-                break
+            # Espera el tiempo restante hasta el siguiente frame
+            elapsed = time.time() - t0
+            to_wait = delay - elapsed
+            if to_wait > 0:
+                time.sleep(to_wait)
         cap.release()
 
     def stop(self):
@@ -119,8 +122,7 @@ class MainWindow(QWidget):
     def update_frame(self, frame_rgb: np.ndarray):
         h, w, _ = frame_rgb.shape
         qimg = QImage(frame_rgb.data, w, h, 3 * w, QImage.Format_RGB888)
-        self.label.setPixmap(QPixmap.fromImage(qimg).scaled(
-            self.label.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+        self.label.setPixmap(QPixmap.fromImage(qimg))  
 
     # ──────────────────────────────────────────────
     def closeEvent(self, event):

@@ -3,7 +3,7 @@ from PIL import Image
 from ultralytics import YOLO
 import tempfile
 from pathlib  import Path
-from prediction_app import SignalDetector
+from Model_predictor import SignalDetector
 import numpy as np
 import cv2 as cv
 import os
@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_DIR = BASE_DIR / '../models'
 MODEL_DIR = MODEL_DIR.resolve()
 
-model_version = "best.pt"
+model_version = "best copy.pt"
 
 # Cargar modelo
 model = YOLO(MODEL_DIR / model_version)
@@ -138,7 +138,7 @@ with st.container():
                 img = Image.open(save_path)              # PIL
                 rgb = np.asarray(img.convert("RGB"))     # RGB
                 bgr = cv.cvtColor(rgb, cv.COLOR_RGB2BGR) # YOLO quiere BGR
-                out = detector.predict_frame(bgr, imgsz=1024, conf=0.5)
+                out = detector.predict_frame(bgr, imgsz=680, conf=0.25)
                 st.image(out, caption="Resultado", use_container_width=True)
 
 
