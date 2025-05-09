@@ -33,7 +33,7 @@ from PySide6.QtWidgets import (
 # ────────────────────────────────────────────────────────────────
 #  AJUSTES RÁPIDOS
 # ────────────────────────────────────────────────────────────────
-MODEL_PATH = Path("./models/best.pt")   # cambia si lo tienes en otro sitio
+MODEL_PATH = Path("./models/last.pt")   # cambia si lo tienes en otro sitio
 IMG_SIZE   = 640                        # resolución de entrada YOLO
 CONF       = 0.25                        # umbral de confianza
 IOU        = 0.7                       # NMS IoU
@@ -71,7 +71,7 @@ class VideoThread(QThread):
             ret, frame = cap.read()
             if not ret:
                 break
-            annotated = DETECTOR.predict_frame(frame, imgsz=IMG_SIZE, conf=CONF, iou=IOU)
+            annotated, _ = DETECTOR.predict_frame(frame, imgsz=IMG_SIZE, conf=CONF, iou=IOU)
             self.frame_ready.emit(annotated)
             # Espera el tiempo restante hasta el siguiente frame
             elapsed = time.time() - t0
