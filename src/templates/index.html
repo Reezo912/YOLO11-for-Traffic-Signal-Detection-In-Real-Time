@@ -12,10 +12,41 @@
             border: 2px solid #555;
             margin-top: 20px;
         }
+        form {
+            margin-top: 20px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
     <h1>Video en vivo desde la cámara</h1>
-    <img src="{{ url_for('video') }}" width="640" height="480" />
+
+    <form id="cameraForm">
+        <input type="text" id="ip" name="ip" placeholder="IP de la cámara (opcional)" size="40">
+        <button type="submit">Conectar</button>
+    </form>
+
+    <img id="videoStream" src="" width="640" height="480" />
+
+    <script>
+        const form = document.getElementById('cameraForm');
+        const video = document.getElementById('videoStream');
+
+        form.onsubmit = function (e) {
+            e.preventDefault();
+            const ip = document.getElementById('ip').value.trim();
+            const url = '/video' + (ip ? `?ip=${encodeURIComponent(ip)}` : '');
+            video.src = url;
+        };
+
+        // Carga por defecto la webcam local al iniciar
+        window.onload = () => {
+            video.src = '/video';
+        };
+    </script>
 </body>
 </html>
