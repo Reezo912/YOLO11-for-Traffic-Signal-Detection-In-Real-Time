@@ -139,7 +139,7 @@ with st.container():
                 rgb = np.asarray(img.convert("RGB"))     # RGB
                 bgr = cv.cvtColor(rgb, cv.COLOR_RGB2BGR) # YOLO quiere BGR
                 start_time = time.time()
-                out, results = detector.predict_frame(bgr, imgsz=1024, conf=0.5)
+                out, results = detector.predict_frame(bgr, imgsz=1024)
                 end_time = time.time()
                 st.image(out, caption="Resultado", use_container_width=True)
 

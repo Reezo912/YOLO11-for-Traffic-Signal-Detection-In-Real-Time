@@ -1,33 +1,32 @@
-¸Ü
+ˇÜ
 
 image
-"††R
-var_1230*
-ïç†Ä¢«Ü
+"ÄÄR
+var_1230*
+ïÄ®†Ä¢…Ü
 tUltralytics YOLO11s model trained on /media/carlos/Sabrent/GitHub/Detector-Senales-Trafico/data/raw/labels/data.yaml8.3.127Ultralytics"2AGPL-3.0 License (https://ultralytics.com/license)¢
 channels3¢-
 $com.github.apple.coremltools.version8.3.0¢@
 args8{'batch': 1, 'half': False, 'int8': False, 'nms': False}¢˜Å
-namesÏÅ{0: 'warning--traffic-merges-right--g1', 1: 'warning--added-lane-right--g1', 2: 'warning--playground--g1', 3: 'other-sign', 4: 'information--lodging--g1', 5: 'regulatory--no-stopping--g15', 6: 'regulatory--priority-road--g4', 7: 'information--parking--g1', 8: 'complementary--turn-right--g2', 9: 'warning--pedestrian-stumble-train--g1', 10: 'regulatory--maximum-speed-limit-45--g3', 11: 'regulatory--stop--g1', 12: 'warning--railroad-crossing--g1', 13: 'information--end-of-built-up-area--g1', 14: 'regulatory--pedestrians-only--g1', 15: 'regulatory--no-entry--g1', 16: 'regulatory--one-way-straight--g1', 17: 'complementary--maximum-speed-limit-15--g1', 18: 'regulatory--keep-right--g4', 19: 'regulatory--yield--g1', 20: 'warning--pedestrians-crossing--g10', 21: 'regulatory--reversible-lanes--g2', 22: 'regulatory--turn-left--g2', 23: 'regulatory--no-parking--g2', 24: 'regulatory--one-way-right--g1', 25: 'regulatory--one-way-left--g1', 26: 'warning--divided-highway-ends--g1', 27: 'regulatory--maximum-speed-limit-55--g2', 28: 'information--pedestrians-crossing--g1', 29: 'regulatory--no-right-turn--g1', 30: 'information--tram-bus-stop--g2', 31: 'regulatory--turn-right-ahead--g1', 32: 'regulatory--no-overtaking--g1', 33: 'regulatory--height-limit--g1', 34: 'warning--domestic-animals--g3', 35: 'warning--traffic-merges-left--g1', 36: 'regulatory--maximum-speed-limit-35--g2', 37: 'regulatory--keep-right--g1', 38: 'complementary--priority-route-at-intersection--g1', 39: 'warning--texts--g1', 40: 'complementary--maximum-speed-limit-20--g1', 41: 'information--disabled-persons--g1', 42: 'warning--crossroads--g1', 43: 'regulatory--no-parking--g1', 44: 'warning--roadworks--g1', 45: 'complementary--turn-left--g2', 46: 'warning--double-curve-first-right--g1', 47: 'regulatory--turn-left-ahead--g1', 48: 'regulatory--no-heavy-goods-vehicles--g1', 49: 'regulatory--no-motor-vehicles-except-motorcycles--g1', 50: 'regulatory--maximum-speed-limit-30--g1', 51: 'regulatory--no-motorcycles--g1', 52: 'complementary--chevron-left--g2', 53: 'complementary--chevron-left--g3', 54: 'complementary--chevron-right--g3', 55: 'information--end-of-motorway--g1', 56: 'regulatory--maximum-speed-limit-50--g1', 57: 'warning--texts--g3', 58: 'warning--junction-with-a-side-road-acute-left--g1', 59: 'regulatory--no-heavy-goods-vehicles--g2', 60: 'regulatory--maximum-speed-limit-10--g1', 61: 'regulatory--roundabout--g1', 62: 'warning--texts--g2', 63: 'warning--pedestrians-crossing--g4', 64: 'complementary--keep-left--g1', 65: 'warning--slippery-road-surface--g1', 66: 'warning--double-curve-first-right--g2', 67: 'regulatory--no-parking--g5', 68: 'complementary--obstacle-delineator--g2', 69: 'regulatory--keep-left--g1', 70: 'warning--railroad-crossing-without-barriers--g4', 71: 'complementary--chevron-left--g1', 72: 'regulatory--end-of-prohibition--g1', 73: 'warning--junction-with-a-side-road-perpendicular-right--g1', 74: 'warning--roundabout--g1', 75: 'complementary--obstacle-delineator--g1', 76: 'regulatory--maximum-speed-limit-45--g1', 77: 'regulatory--weight-limit--g1', 78: 'warning--slippery-road-surface--g2', 79: 'complementary--distance--g3', 80: 'warning--junction-with-a-side-road-perpendicular-left--g3', 81: 'regulatory--go-straight--g1', 82: 'information--road-bump--g1', 83: 'warning--children--g1', 84: 'regulatory--maximum-speed-limit-40--g1', 85: 'warning--other-danger--g1', 86: 'regulatory--no-buses--g3', 87: 'regulatory--no-heavy-goods-vehicles--g4', 88: 'complementary--chevron-right-unsure--g6', 89: 'complementary--chevron-right--g5', 90: 'complementary--chevron-right--g1', 91: 'information--stairs--g1', 92: 'warning--curve-right--g1', 93: 'complementary--pass-right--g1', 94: 'complementary--chevron-right--g4', 95: 'warning--t-roads--g1', 96: 'regulatory--no-u-turn--g2', 97: 'warning--junction-with-a-side-road-perpendicular-right--g3', 98: 'warning--horizontal-alignment-right--g1', 99: 'warning--pedestrians-crossing--g1', 100: 'regulatory--keep-left--g2', 101: 'warning--wombat-crossing--g1', 102: 'regulatory--no-hawkers--g1', 103: 'warning--railroad-crossing-with-barriers--g1', 104: 'warning--uneven-road--g2', 105: 'complementary--extent-of-prohibition-area-both-direction--g1', 106: 'warning--t-roads--g2', 107: 'regulatory--turn-left--g1', 108: 'regulatory--turn-left--g3', 109: 'information--parking--g3', 110: 'regulatory--turn-right--g2', 111: 'regulatory--no-motor-vehicles--g4', 112: 'regulatory--shared-path-pedestrians-and-bicycles--g1', 113: 'regulatory--no-overtaking--g5', 114: 'regulatory--maximum-speed-limit-5--g1', 115: 'complementary--go-left--g1', 116: 'warning--double-curve-first-left--g1', 117: 'regulatory--go-straight-or-turn-left--g2', 118: 'regulatory--turn-right--g3', 119: 'information--interstate-route--g1', 120: 'regulatory--lane-control--g1', 121: 'warning--road-bump--g2', 122: 'warning--roadworks--g3', 123: 'regulatory--one-way-left--g3', 124: 'warning--narrow-bridge--g1', 125: 'complementary--maximum-speed-limit-50--g1', 126: 'warning--curve-left--g2', 127: 'regulatory--maximum-speed-limit-60--g1', 128: 'regulatory--maximum-speed-limit-100--g1', 129: 'regulatory--maximum-speed-limit-120--g1', 130: 'information--dead-end--g1', 131: 'complementary--maximum-speed-limit-55--g1', 132: 'warning--junction-with-a-side-road-acute-right--g1', 133: 'regulatory--maximum-speed-limit-70--g1', 134: 'regulatory--no-u-turn--g3', 135: 'regulatory--no-right-turn--g2', 136: 'regulatory--no-stopping--g5', 137: 'warning--roadworks--g2', 138: 'complementary--go-right--g1', 139: 'warning--wild-animals--g4', 140: 'information--bike-route--g1', 141: 'information--food--g2', 142: 'regulatory--go-straight-or-turn-left--g3', 143: 'regulatory--turn-right-ahead--g2', 144: 'regulatory--no-stopping--g2', 145: 'regulatory--give-way-to-oncoming-traffic--g1', 146: 'warning--children--g2', 147: 'complementary--maximum-speed-limit-35--g1', 148: 'warning--road-bump--g1', 149: 'regulatory--no-u-turn--g1', 150: 'warning--pass-left-or-right--g2', 151: 'regulatory--no-overtaking--g2', 152: 'regulatory--turn-right--g1', 153: 'warning--curve-right--g2', 154: 'regulatory--no-turns--g1', 155: 'regulatory--no-turn-on-red--g3', 156: 'regulatory--no-parking-or-no-stopping--g2', 157: 'regulatory--stop-here-on-red-or-flashing-light--g2', 158: 'regulatory--maximum-speed-limit-25--g2', 159: 'warning--junction-with-a-side-road-perpendicular-left--g1', 160: 'warning--winding-road-first-right--g1', 161: 'warning--accidental-area-unsure--g2', 162: 'regulatory--no-overtaking--g4', 163: 'warning--school-zone--g2', 164: 'regulatory--wrong-way--g1', 165: 'regulatory--road-closed--g2', 166: 'regulatory--no-stopping--g8', 167: 'complementary--distance--g1', 168: 'warning--emergency-vehicles--g1', 169: 'warning--kangaloo-crossing--g1', 170: 'complementary--maximum-speed-limit-30--g1', 171: 'warning--turn-right--g1', 172: 'regulatory--truck-speed-limit-60--g1', 173: 'regulatory--priority-over-oncoming-vehicles--g1', 174: 'information--pedestrians-crossing--g2', 175: 'information--parking--g5', 176: 'information--children--g1', 177: 'regulatory--passing-lane-ahead--g1', 178: 'information--airport--g1', 179: 'information--limited-access-road--g1', 180: 'regulatory--no-motor-vehicles-except-motorcycles--g2', 181: 'information--safety-area--g2', 182: 'warning--roundabout--g25', 183: 'regulatory--no-left-turn--g1', 184: 'warning--roadworks--g4', 185: 'complementary--trucks--g1', 186: 'regulatory--go-straight--g3', 187: 'warning--steep-ascent--g7', 188: 'warning--divided-highway-ends--g2', 189: 'information--parking--g45', 190: 'regulatory--buses-only--g1', 191: 'regulatory--one-way-right--g3', 192: 'regulatory--maximum-speed-limit-20--g1', 193: 'warning--road-narrows--g1', 194: 'warning--road-narrows-left--g1', 195: 'complementary--accident-area--g3', 196: 'regulatory--one-way-left--g2', 197: 'warning--road-narrows-left--g2', 198: 'warning--trucks-crossing--g1', 199: 'regulatory--bicycles-only--g1', 200: 'complementary--maximum-speed-limit-70--g1', 201: 'warning--curve-left--g1', 202: 'warning--domestic-animals--g1', 203: 'regulatory--maximum-speed-limit-30--g3', 204: 'warning--road-narrows-right--g2', 205: 'regulatory--keep-right--g6', 206: 'information--living-street--g1', 207: 'complementary--tow-away-zone--g1', 208: 'regulatory--triple-lanes-turn-left-center-lane--g1', 209: 'regulatory--maximum-speed-limit-90--g1', 210: 'complementary--both-directions--g1', 211: 'complementary--maximum-speed-limit-45--g1', 212: 'warning--turn-left--g1', 213: 'regulatory--maximum-speed-limit-80--g1', 214: 'complementary--maximum-speed-limit-75--g1', 215: 'regulatory--dual-lanes-go-straight-on-right--g1', 216: 'regulatory--do-not-block-intersection--g1', 217: 'regulatory--radar-enforced--g1', 218: 'warning--traffic-merges-right--g2', 219: 'regulatory--stop--g10', 220: 'regulatory--go-straight-or-turn-left--g1', 221: 'regulatory--no-straight-through--g2', 222: 'regulatory--end-of-maximum-speed-limit-70--g2', 223: 'regulatory--minimum-safe-distance--g1', 224: 'regulatory--no-turn-on-red--g1', 225: 'regulatory--stop-signals--g1', 226: 'information--gas-station--g1', 227: 'regulatory--end-of-speed-limit-zone--g1', 228: 'warning--two-way-traffic--g1', 229: 'warning--railroad-crossing-without-barriers--g3', 230: 'information--hospital--g1', 231: 'warning--stop-ahead--g9', 232: 'warning--railroad-crossing--g3', 233: 'information--motorway--g1', 234: 'information--emergency-facility--g2', 235: 'warning--road-widens--g1', 236: 'regulatory--road-closed-to-vehicles--g3', 237: 'information--highway-exit--g1', 238: 'regulatory--no-turn-on-red--g2', 239: 'regulatory--no-pedestrians--g2', 240: 'regulatory--width-limit--g1', 241: 'warning--hairpin-curve-right--g1', 242: 'complementary--keep-right--g1', 243: 'warning--junction-with-a-side-road-perpendicular-left--g4', 244: 'warning--flaggers-in-road--g1', 245: 'warning--wild-animals--g1', 246: 'warning--traffic-signals--g4', 247: 'warning--crossroads--g3', 248: 'warning--two-way-traffic--g2', 249: 'warning--traffic-signals--g2', 250: 'regulatory--one-way-right--g2', 251: 'regulatory--no-overtaking-by-heavy-goods-vehicles--g1', 252: 'complementary--distance--g2', 253: 'warning--double-reverse-curve-right--g1', 254: 'warning--double-curve-first-left--g2', 255: 'complementary--except-bicycles--g1', 256: 'warning--traffic-signals--g1', 257: 'complementary--chevron-left--g5', 258: 'warning--road-widens-right--g1', 259: 'regulatory--maximum-speed-limit-40--g6', 260: 'warning--horizontal-alignment-left--g1', 261: 'regulatory--no-bicycles--g1', 262: 'regulatory--maximum-speed-limit-15--g1', 263: 'regulatory--no-straight-through--g1', 264: 'regulatory--parking-restrictions--g2', 265: 'regulatory--no-parking-or-no-stopping--g1', 266: 'warning--uneven-road--g6', 267: 'complementary--go-right--g2', 268: 'warning--railroad-intersection--g3', 269: 'warning--railroad-crossing--g4', 270: 'information--airport--g2', 271: 'complementary--trucks-turn-right--g1', 272: 'regulatory--end-of-bicycles-only--g1', 273: 'warning--road-narrows--g2', 274: 'warning--narrow-bridge--g3', 275: 'warning--pedestrians-crossing--g5', 276: 'regulatory--maximum-speed-limit-led-60--g1', 277: 'regulatory--no-parking-or-no-stopping--g3', 278: 'regulatory--pedestrians-only--g2', 279: 'warning--slippery-motorcycles--g1', 280: 'regulatory--pass-on-either-side--g2', 281: 'complementary--one-direction-right--g1', 282: 'warning--pedestrians-crossing--g9', 283: 'regulatory--go-straight-or-turn-right--g1', 284: 'information--end-of-living-street--g1', 285: 'information--bus-stop--g1', 286: 'warning--winding-road-first-left--g1', 287: 'warning--bus-stop-ahead--g3', 288: 'warning--double-turn-first-right--g1', 289: 'warning--winding-road-first-right--g3', 290: 'warning--railroad-crossing-with-barriers--g2', 291: 'warning--railroad-intersection--g4', 292: 'regulatory--keep-right--g2', 293: 'warning--bicycles-crossing--g2', 294: 'regulatory--bicycles-only--g2', 295: 'regulatory--maximum-speed-limit-led-80--g1', 296: 'warning--height-restriction--g2', 297: 'regulatory--maximum-speed-limit-50--g6', 298: 'warning--hairpin-curve-right--g4', 299: 'warning--traffic-signals--g3', 300: 'regulatory--mopeds-and-bicycles-only--g1', 301: 'regulatory--no-left-turn--g2', 302: 'regulatory--end-of-no-parking--g1', 303: 'regulatory--end-of-priority-road--g1', 304: 'regulatory--no-heavy-goods-vehicles-or-buses--g1', 305: 'warning--uneven-roads-ahead--g1', 306: 'regulatory--road-closed-to-vehicles--g1', 307: 'warning--hairpin-curve-left--g1', 308: 'information--trailer-camping--g1', 309: 'regulatory--no-stopping--g4', 310: 'regulatory--no-pedestrians-or-bicycles--g1', 311: 'regulatory--no-heavy-goods-vehicles--g5', 312: 'warning--other-danger--g3', 313: 'warning--falling-rocks-or-debris-right--g1', 314: 'regulatory--dual-lanes-go-straight-on-left--g1', 315: 'regulatory--u-turn--g1', 316: 'complementary--maximum-speed-limit-40--g1', 317: 'regulatory--stop-here-on-red-or-flashing-light--g1', 318: 'information--parking--g6', 319: 'regulatory--no-motor-vehicle-trailers--g1', 320: 'regulatory--no-pedestrians--g1', 321: 'regulatory--no-pedestrians--g3', 322: 'warning--traffic-merges-left--g2', 323: 'regulatory--text-four-lines--g1', 324: 'regulatory--dual-path-bicycles-and-pedestrians--g1', 325: 'regulatory--maximum-speed-limit-40--g3', 326: 'information--parking--g2', 327: 'warning--bicycles-crossing--g3', 328: 'regulatory--pass-on-either-side--g1', 329: 'regulatory--no-bicycles--g3', 330: 'warning--pass-left-or-right--g1', 331: 'complementary--chevron-left--g4', 332: 'warning--falling-rocks-or-debris-right--g2', 333: 'regulatory--maximum-speed-limit-led-100--g1', 334: 'warning--pedestrians-crossing--g12', 335: 'complementary--buses--g1', 336: 'warning--road-narrows-right--g1', 337: 'information--highway-interstate-route--g2', 338: 'warning--y-roads--g1', 339: 'warning--railroad-crossing-without-barriers--g1', 340: 'information--telephone--g2', 341: 'regulatory--maximum-speed-limit-110--g1', 342: 'regulatory--no-right-turn--g3', 343: 'regulatory--stop--g2', 344: 'regulatory--left-turn-yield-on-green--g1', 345: 'warning--dual-lanes-right-turn-or-go-straight--g1', 346: 'regulatory--dual-path-pedestrians-and-bicycles--g1', 347: 'regulatory--maximum-speed-limit-100--g3', 348: 'complementary--one-direction-left--g1', 349: 'regulatory--no-left-turn--g3', 350: 'regulatory--go-straight-or-turn-right--g3', 351: 'warning--dip--g2', 352: 'warning--bicycles-crossing--g1', 353: 'regulatory--no-motorcycles--g2', 354: 'regulatory--road-closed--g1', 355: 'warning--winding-road-first-left--g2', 356: 'regulatory--end-of-maximum-speed-limit-30--g2', 357: 'warning--loop-270-degree--g1', 358: 'complementary--maximum-speed-limit-25--g1', 359: 'warning--falling-rocks-or-debris-right--g4', 360: 'regulatory--maximum-speed-limit-65--g2', 361: 'warning--trail-crossing--g2', 362: 'regulatory--no-vehicles-carrying-dangerous-goods--g1', 363: 'information--end-of-limited-access-road--g1', 364: 'information--telephone--g1', 365: 'information--central-lane--g1', 366: 'warning--offset-roads--g3', 367: 'regulatory--roundabout--g2', 368: 'warning--roadworks--g6', 369: 'warning--crossroads-with-priority-to-the-right--g1', 370: 'information--no-parking--g3', 371: 'information--gas-station--g3', 372: 'regulatory--dual-lanes-turn-right-or-straight--g1', 373: 'regulatory--maximum-speed-limit-25--g1', 374: 'regulatory--no-bicycles--g2', 375: 'regulatory--dual-lanes-turn-left-or-straight--g1', 376: 'regulatory--no-mopeds-or-bicycles--g1', 377: 'warning--horizontal-alignment-right--g3', 378: 'information--camp--g1', 379: 'warning--pedestrians-crossing--g11', 380: 'regulatory--no-motor-vehicles--g1', 381: 'warning--shared-lane-motorcycles-bicycles--g1', 382: 'information--minimum-speed-40--g1', 383: 'information--dead-end-except-bicycles--g1', 384: 'regulatory--do-not-stop-on-tracks--g1', 385: 'warning--turn-right--g2', 386: 'warning--trams-crossing--g1', 387: 'warning--railroad-crossing-with-barriers--g4', 388: 'warning--restricted-zone--g1', 389: 'regulatory--end-of-maximum-speed-limit-70--g1', 390: 'regulatory--turning-vehicles-yield-to-pedestrians--g1', 391: 'warning--playground--g3', 392: 'regulatory--bicycles-only--g3', 393: 'warning--hairpin-curve-left--g3', 394: 'regulatory--end-of-buses-only--g1', 395: 'regulatory--dual-lanes-turn-left-no-u-turn--g1', 396: 'regulatory--shared-path-bicycles-and-pedestrians--g1', 397: 'warning--equestrians-crossing--g2', 398: 'regulatory--weight-limit-with-trucks--g1', 399: 'regulatory--detour-left--g1', 400: 'information--end-of-pedestrians-only--g2'}¢
-imgsz
-[160, 160]¢
+namesÏÅ{0: 'warning--traffic-merges-right--g1', 1: 'warning--added-lane-right--g1', 2: 'warning--playground--g1', 3: 'other-sign', 4: 'information--lodging--g1', 5: 'regulatory--no-stopping--g15', 6: 'regulatory--priority-road--g4', 7: 'information--parking--g1', 8: 'complementary--turn-right--g2', 9: 'warning--pedestrian-stumble-train--g1', 10: 'regulatory--maximum-speed-limit-45--g3', 11: 'regulatory--stop--g1', 12: 'warning--railroad-crossing--g1', 13: 'information--end-of-built-up-area--g1', 14: 'regulatory--pedestrians-only--g1', 15: 'regulatory--no-entry--g1', 16: 'regulatory--one-way-straight--g1', 17: 'complementary--maximum-speed-limit-15--g1', 18: 'regulatory--keep-right--g4', 19: 'regulatory--yield--g1', 20: 'warning--pedestrians-crossing--g10', 21: 'regulatory--reversible-lanes--g2', 22: 'regulatory--turn-left--g2', 23: 'regulatory--no-parking--g2', 24: 'regulatory--one-way-right--g1', 25: 'regulatory--one-way-left--g1', 26: 'warning--divided-highway-ends--g1', 27: 'regulatory--maximum-speed-limit-55--g2', 28: 'information--pedestrians-crossing--g1', 29: 'regulatory--no-right-turn--g1', 30: 'information--tram-bus-stop--g2', 31: 'regulatory--turn-right-ahead--g1', 32: 'regulatory--no-overtaking--g1', 33: 'regulatory--height-limit--g1', 34: 'warning--domestic-animals--g3', 35: 'warning--traffic-merges-left--g1', 36: 'regulatory--maximum-speed-limit-35--g2', 37: 'regulatory--keep-right--g1', 38: 'complementary--priority-route-at-intersection--g1', 39: 'warning--texts--g1', 40: 'complementary--maximum-speed-limit-20--g1', 41: 'information--disabled-persons--g1', 42: 'warning--crossroads--g1', 43: 'regulatory--no-parking--g1', 44: 'warning--roadworks--g1', 45: 'complementary--turn-left--g2', 46: 'warning--double-curve-first-right--g1', 47: 'regulatory--turn-left-ahead--g1', 48: 'regulatory--no-heavy-goods-vehicles--g1', 49: 'regulatory--no-motor-vehicles-except-motorcycles--g1', 50: 'regulatory--maximum-speed-limit-30--g1', 51: 'regulatory--no-motorcycles--g1', 52: 'complementary--chevron-left--g2', 53: 'complementary--chevron-left--g3', 54: 'complementary--chevron-right--g3', 55: 'information--end-of-motorway--g1', 56: 'regulatory--maximum-speed-limit-50--g1', 57: 'warning--texts--g3', 58: 'warning--junction-with-a-side-road-acute-left--g1', 59: 'regulatory--no-heavy-goods-vehicles--g2', 60: 'regulatory--maximum-speed-limit-10--g1', 61: 'regulatory--roundabout--g1', 62: 'warning--texts--g2', 63: 'warning--pedestrians-crossing--g4', 64: 'complementary--keep-left--g1', 65: 'warning--slippery-road-surface--g1', 66: 'warning--double-curve-first-right--g2', 67: 'regulatory--no-parking--g5', 68: 'complementary--obstacle-delineator--g2', 69: 'regulatory--keep-left--g1', 70: 'warning--railroad-crossing-without-barriers--g4', 71: 'complementary--chevron-left--g1', 72: 'regulatory--end-of-prohibition--g1', 73: 'warning--junction-with-a-side-road-perpendicular-right--g1', 74: 'warning--roundabout--g1', 75: 'complementary--obstacle-delineator--g1', 76: 'regulatory--maximum-speed-limit-45--g1', 77: 'regulatory--weight-limit--g1', 78: 'warning--slippery-road-surface--g2', 79: 'complementary--distance--g3', 80: 'warning--junction-with-a-side-road-perpendicular-left--g3', 81: 'regulatory--go-straight--g1', 82: 'information--road-bump--g1', 83: 'warning--children--g1', 84: 'regulatory--maximum-speed-limit-40--g1', 85: 'warning--other-danger--g1', 86: 'regulatory--no-buses--g3', 87: 'regulatory--no-heavy-goods-vehicles--g4', 88: 'complementary--chevron-right-unsure--g6', 89: 'complementary--chevron-right--g5', 90: 'complementary--chevron-right--g1', 91: 'information--stairs--g1', 92: 'warning--curve-right--g1', 93: 'complementary--pass-right--g1', 94: 'complementary--chevron-right--g4', 95: 'warning--t-roads--g1', 96: 'regulatory--no-u-turn--g2', 97: 'warning--junction-with-a-side-road-perpendicular-right--g3', 98: 'warning--horizontal-alignment-right--g1', 99: 'warning--pedestrians-crossing--g1', 100: 'regulatory--keep-left--g2', 101: 'warning--wombat-crossing--g1', 102: 'regulatory--no-hawkers--g1', 103: 'warning--railroad-crossing-with-barriers--g1', 104: 'warning--uneven-road--g2', 105: 'complementary--extent-of-prohibition-area-both-direction--g1', 106: 'warning--t-roads--g2', 107: 'regulatory--turn-left--g1', 108: 'regulatory--turn-left--g3', 109: 'information--parking--g3', 110: 'regulatory--turn-right--g2', 111: 'regulatory--no-motor-vehicles--g4', 112: 'regulatory--shared-path-pedestrians-and-bicycles--g1', 113: 'regulatory--no-overtaking--g5', 114: 'regulatory--maximum-speed-limit-5--g1', 115: 'complementary--go-left--g1', 116: 'warning--double-curve-first-left--g1', 117: 'regulatory--go-straight-or-turn-left--g2', 118: 'regulatory--turn-right--g3', 119: 'information--interstate-route--g1', 120: 'regulatory--lane-control--g1', 121: 'warning--road-bump--g2', 122: 'warning--roadworks--g3', 123: 'regulatory--one-way-left--g3', 124: 'warning--narrow-bridge--g1', 125: 'complementary--maximum-speed-limit-50--g1', 126: 'warning--curve-left--g2', 127: 'regulatory--maximum-speed-limit-60--g1', 128: 'regulatory--maximum-speed-limit-100--g1', 129: 'regulatory--maximum-speed-limit-120--g1', 130: 'information--dead-end--g1', 131: 'complementary--maximum-speed-limit-55--g1', 132: 'warning--junction-with-a-side-road-acute-right--g1', 133: 'regulatory--maximum-speed-limit-70--g1', 134: 'regulatory--no-u-turn--g3', 135: 'regulatory--no-right-turn--g2', 136: 'regulatory--no-stopping--g5', 137: 'warning--roadworks--g2', 138: 'complementary--go-right--g1', 139: 'warning--wild-animals--g4', 140: 'information--bike-route--g1', 141: 'information--food--g2', 142: 'regulatory--go-straight-or-turn-left--g3', 143: 'regulatory--turn-right-ahead--g2', 144: 'regulatory--no-stopping--g2', 145: 'regulatory--give-way-to-oncoming-traffic--g1', 146: 'warning--children--g2', 147: 'complementary--maximum-speed-limit-35--g1', 148: 'warning--road-bump--g1', 149: 'regulatory--no-u-turn--g1', 150: 'warning--pass-left-or-right--g2', 151: 'regulatory--no-overtaking--g2', 152: 'regulatory--turn-right--g1', 153: 'warning--curve-right--g2', 154: 'regulatory--no-turns--g1', 155: 'regulatory--no-turn-on-red--g3', 156: 'regulatory--no-parking-or-no-stopping--g2', 157: 'regulatory--stop-here-on-red-or-flashing-light--g2', 158: 'regulatory--maximum-speed-limit-25--g2', 159: 'warning--junction-with-a-side-road-perpendicular-left--g1', 160: 'warning--winding-road-first-right--g1', 161: 'warning--accidental-area-unsure--g2', 162: 'regulatory--no-overtaking--g4', 163: 'warning--school-zone--g2', 164: 'regulatory--wrong-way--g1', 165: 'regulatory--road-closed--g2', 166: 'regulatory--no-stopping--g8', 167: 'complementary--distance--g1', 168: 'warning--emergency-vehicles--g1', 169: 'warning--kangaloo-crossing--g1', 170: 'complementary--maximum-speed-limit-30--g1', 171: 'warning--turn-right--g1', 172: 'regulatory--truck-speed-limit-60--g1', 173: 'regulatory--priority-over-oncoming-vehicles--g1', 174: 'information--pedestrians-crossing--g2', 175: 'information--parking--g5', 176: 'information--children--g1', 177: 'regulatory--passing-lane-ahead--g1', 178: 'information--airport--g1', 179: 'information--limited-access-road--g1', 180: 'regulatory--no-motor-vehicles-except-motorcycles--g2', 181: 'information--safety-area--g2', 182: 'warning--roundabout--g25', 183: 'regulatory--no-left-turn--g1', 184: 'warning--roadworks--g4', 185: 'complementary--trucks--g1', 186: 'regulatory--go-straight--g3', 187: 'warning--steep-ascent--g7', 188: 'warning--divided-highway-ends--g2', 189: 'information--parking--g45', 190: 'regulatory--buses-only--g1', 191: 'regulatory--one-way-right--g3', 192: 'regulatory--maximum-speed-limit-20--g1', 193: 'warning--road-narrows--g1', 194: 'warning--road-narrows-left--g1', 195: 'complementary--accident-area--g3', 196: 'regulatory--one-way-left--g2', 197: 'warning--road-narrows-left--g2', 198: 'warning--trucks-crossing--g1', 199: 'regulatory--bicycles-only--g1', 200: 'complementary--maximum-speed-limit-70--g1', 201: 'warning--curve-left--g1', 202: 'warning--domestic-animals--g1', 203: 'regulatory--maximum-speed-limit-30--g3', 204: 'warning--road-narrows-right--g2', 205: 'regulatory--keep-right--g6', 206: 'information--living-street--g1', 207: 'complementary--tow-away-zone--g1', 208: 'regulatory--triple-lanes-turn-left-center-lane--g1', 209: 'regulatory--maximum-speed-limit-90--g1', 210: 'complementary--both-directions--g1', 211: 'complementary--maximum-speed-limit-45--g1', 212: 'warning--turn-left--g1', 213: 'regulatory--maximum-speed-limit-80--g1', 214: 'complementary--maximum-speed-limit-75--g1', 215: 'regulatory--dual-lanes-go-straight-on-right--g1', 216: 'regulatory--do-not-block-intersection--g1', 217: 'regulatory--radar-enforced--g1', 218: 'warning--traffic-merges-right--g2', 219: 'regulatory--stop--g10', 220: 'regulatory--go-straight-or-turn-left--g1', 221: 'regulatory--no-straight-through--g2', 222: 'regulatory--end-of-maximum-speed-limit-70--g2', 223: 'regulatory--minimum-safe-distance--g1', 224: 'regulatory--no-turn-on-red--g1', 225: 'regulatory--stop-signals--g1', 226: 'information--gas-station--g1', 227: 'regulatory--end-of-speed-limit-zone--g1', 228: 'warning--two-way-traffic--g1', 229: 'warning--railroad-crossing-without-barriers--g3', 230: 'information--hospital--g1', 231: 'warning--stop-ahead--g9', 232: 'warning--railroad-crossing--g3', 233: 'information--motorway--g1', 234: 'information--emergency-facility--g2', 235: 'warning--road-widens--g1', 236: 'regulatory--road-closed-to-vehicles--g3', 237: 'information--highway-exit--g1', 238: 'regulatory--no-turn-on-red--g2', 239: 'regulatory--no-pedestrians--g2', 240: 'regulatory--width-limit--g1', 241: 'warning--hairpin-curve-right--g1', 242: 'complementary--keep-right--g1', 243: 'warning--junction-with-a-side-road-perpendicular-left--g4', 244: 'warning--flaggers-in-road--g1', 245: 'warning--wild-animals--g1', 246: 'warning--traffic-signals--g4', 247: 'warning--crossroads--g3', 248: 'warning--two-way-traffic--g2', 249: 'warning--traffic-signals--g2', 250: 'regulatory--one-way-right--g2', 251: 'regulatory--no-overtaking-by-heavy-goods-vehicles--g1', 252: 'complementary--distance--g2', 253: 'warning--double-reverse-curve-right--g1', 254: 'warning--double-curve-first-left--g2', 255: 'complementary--except-bicycles--g1', 256: 'warning--traffic-signals--g1', 257: 'complementary--chevron-left--g5', 258: 'warning--road-widens-right--g1', 259: 'regulatory--maximum-speed-limit-40--g6', 260: 'warning--horizontal-alignment-left--g1', 261: 'regulatory--no-bicycles--g1', 262: 'regulatory--maximum-speed-limit-15--g1', 263: 'regulatory--no-straight-through--g1', 264: 'regulatory--parking-restrictions--g2', 265: 'regulatory--no-parking-or-no-stopping--g1', 266: 'warning--uneven-road--g6', 267: 'complementary--go-right--g2', 268: 'warning--railroad-intersection--g3', 269: 'warning--railroad-crossing--g4', 270: 'information--airport--g2', 271: 'complementary--trucks-turn-right--g1', 272: 'regulatory--end-of-bicycles-only--g1', 273: 'warning--road-narrows--g2', 274: 'warning--narrow-bridge--g3', 275: 'warning--pedestrians-crossing--g5', 276: 'regulatory--maximum-speed-limit-led-60--g1', 277: 'regulatory--no-parking-or-no-stopping--g3', 278: 'regulatory--pedestrians-only--g2', 279: 'warning--slippery-motorcycles--g1', 280: 'regulatory--pass-on-either-side--g2', 281: 'complementary--one-direction-right--g1', 282: 'warning--pedestrians-crossing--g9', 283: 'regulatory--go-straight-or-turn-right--g1', 284: 'information--end-of-living-street--g1', 285: 'information--bus-stop--g1', 286: 'warning--winding-road-first-left--g1', 287: 'warning--bus-stop-ahead--g3', 288: 'warning--double-turn-first-right--g1', 289: 'warning--winding-road-first-right--g3', 290: 'warning--railroad-crossing-with-barriers--g2', 291: 'warning--railroad-intersection--g4', 292: 'regulatory--keep-right--g2', 293: 'warning--bicycles-crossing--g2', 294: 'regulatory--bicycles-only--g2', 295: 'regulatory--maximum-speed-limit-led-80--g1', 296: 'warning--height-restriction--g2', 297: 'regulatory--maximum-speed-limit-50--g6', 298: 'warning--hairpin-curve-right--g4', 299: 'warning--traffic-signals--g3', 300: 'regulatory--mopeds-and-bicycles-only--g1', 301: 'regulatory--no-left-turn--g2', 302: 'regulatory--end-of-no-parking--g1', 303: 'regulatory--end-of-priority-road--g1', 304: 'regulatory--no-heavy-goods-vehicles-or-buses--g1', 305: 'warning--uneven-roads-ahead--g1', 306: 'regulatory--road-closed-to-vehicles--g1', 307: 'warning--hairpin-curve-left--g1', 308: 'information--trailer-camping--g1', 309: 'regulatory--no-stopping--g4', 310: 'regulatory--no-pedestrians-or-bicycles--g1', 311: 'regulatory--no-heavy-goods-vehicles--g5', 312: 'warning--other-danger--g3', 313: 'warning--falling-rocks-or-debris-right--g1', 314: 'regulatory--dual-lanes-go-straight-on-left--g1', 315: 'regulatory--u-turn--g1', 316: 'complementary--maximum-speed-limit-40--g1', 317: 'regulatory--stop-here-on-red-or-flashing-light--g1', 318: 'information--parking--g6', 319: 'regulatory--no-motor-vehicle-trailers--g1', 320: 'regulatory--no-pedestrians--g1', 321: 'regulatory--no-pedestrians--g3', 322: 'warning--traffic-merges-left--g2', 323: 'regulatory--text-four-lines--g1', 324: 'regulatory--dual-path-bicycles-and-pedestrians--g1', 325: 'regulatory--maximum-speed-limit-40--g3', 326: 'information--parking--g2', 327: 'warning--bicycles-crossing--g3', 328: 'regulatory--pass-on-either-side--g1', 329: 'regulatory--no-bicycles--g3', 330: 'warning--pass-left-or-right--g1', 331: 'complementary--chevron-left--g4', 332: 'warning--falling-rocks-or-debris-right--g2', 333: 'regulatory--maximum-speed-limit-led-100--g1', 334: 'warning--pedestrians-crossing--g12', 335: 'complementary--buses--g1', 336: 'warning--road-narrows-right--g1', 337: 'information--highway-interstate-route--g2', 338: 'warning--y-roads--g1', 339: 'warning--railroad-crossing-without-barriers--g1', 340: 'information--telephone--g2', 341: 'regulatory--maximum-speed-limit-110--g1', 342: 'regulatory--no-right-turn--g3', 343: 'regulatory--stop--g2', 344: 'regulatory--left-turn-yield-on-green--g1', 345: 'warning--dual-lanes-right-turn-or-go-straight--g1', 346: 'regulatory--dual-path-pedestrians-and-bicycles--g1', 347: 'regulatory--maximum-speed-limit-100--g3', 348: 'complementary--one-direction-left--g1', 349: 'regulatory--no-left-turn--g3', 350: 'regulatory--go-straight-or-turn-right--g3', 351: 'warning--dip--g2', 352: 'warning--bicycles-crossing--g1', 353: 'regulatory--no-motorcycles--g2', 354: 'regulatory--road-closed--g1', 355: 'warning--winding-road-first-left--g2', 356: 'regulatory--end-of-maximum-speed-limit-30--g2', 357: 'warning--loop-270-degree--g1', 358: 'complementary--maximum-speed-limit-25--g1', 359: 'warning--falling-rocks-or-debris-right--g4', 360: 'regulatory--maximum-speed-limit-65--g2', 361: 'warning--trail-crossing--g2', 362: 'regulatory--no-vehicles-carrying-dangerous-goods--g1', 363: 'information--end-of-limited-access-road--g1', 364: 'information--telephone--g1', 365: 'information--central-lane--g1', 366: 'warning--offset-roads--g3', 367: 'regulatory--roundabout--g2', 368: 'warning--roadworks--g6', 369: 'warning--crossroads-with-priority-to-the-right--g1', 370: 'information--no-parking--g3', 371: 'information--gas-station--g3', 372: 'regulatory--dual-lanes-turn-right-or-straight--g1', 373: 'regulatory--maximum-speed-limit-25--g1', 374: 'regulatory--no-bicycles--g2', 375: 'regulatory--dual-lanes-turn-left-or-straight--g1', 376: 'regulatory--no-mopeds-or-bicycles--g1', 377: 'warning--horizontal-alignment-right--g3', 378: 'information--camp--g1', 379: 'warning--pedestrians-crossing--g11', 380: 'regulatory--no-motor-vehicles--g1', 381: 'warning--shared-lane-motorcycles-bicycles--g1', 382: 'information--minimum-speed-40--g1', 383: 'information--dead-end-except-bicycles--g1', 384: 'regulatory--do-not-stop-on-tracks--g1', 385: 'warning--turn-right--g2', 386: 'warning--trams-crossing--g1', 387: 'warning--railroad-crossing-with-barriers--g4', 388: 'warning--restricted-zone--g1', 389: 'regulatory--end-of-maximum-speed-limit-70--g1', 390: 'regulatory--turning-vehicles-yield-to-pedestrians--g1', 391: 'warning--playground--g3', 392: 'regulatory--bicycles-only--g3', 393: 'warning--hairpin-curve-left--g3', 394: 'regulatory--end-of-buses-only--g1', 395: 'regulatory--dual-lanes-turn-left-no-u-turn--g1', 396: 'regulatory--shared-path-bicycles-and-pedestrians--g1', 397: 'warning--equestrians-crossing--g2', 398: 'regulatory--weight-limit-with-trucks--g1', 399: 'regulatory--detour-left--g1', 400: 'information--end-of-pedestrians-only--g2'}¢
+imgsz[1024, 1024]¢
 taskdetect¢9
 #com.github.apple.coremltools.sourcetorch==2.7.0+cu128¢
 
 batch1¢
 stride32¢:
 +com.github.apple.coremltools.source_dialectTorchScript¢"
-date2025-05-12T21:31:34.012610¢$
-docshttps://docs.ultralytics.com≤«◊	—’	
-main«’	
+date2025-05-13T19:52:41.989611¢$
+docshttps://docs.ultralytics.com≤Êÿ	÷	
+mainÊ÷	
 )
 image 
 
 
 
-†
-†CoreML5è’	
-CoreML5Ç’	var_1230j
+Ä
+ÄCoreML5Æ÷	
+CoreML5°÷	var_1230j
 const
 image__scaled___y_0
 *)
@@ -52,8 +51,8 @@ $com.github.apple.coremltools.version8.3.0¢@
 
 
 
-†
-†*%
+Ä
+Ä*%
 name
 
 "
@@ -187,12 +186,12 @@ $com.github.apple.coremltools.version8.3.0¢@
 
 
 
-†
-†*
+Ä
+Ä*
 name
 
 "	
-cast_11Ù
+cast_11ˆ
 conv)
 weight
 
@@ -217,29 +216,29 @@ $com.github.apple.coremltools.version8.3.0¢@
 image_to_fp16"
 pad_type
 
-input_1_pad_type_03
-input_1_cast_fp16
-
+input_1_pad_type_05
+input_1_cast_fp16 
+
 
 
- 
-P
-P*'
+ 
+Ä
+Ä*'
 name
 
 "
-input_1_cast_fp16Ä
+input_1_cast_fp16Ç
 silu
 x
 
-input_1_cast_fp163
-input_3_cast_fp16
-
+input_1_cast_fp165
+input_3_cast_fp16 
+
 
 
- 
-P
-P*'
+ 
+Ä
+Ä*'
 name
 
 "
@@ -348,7 +347,7 @@ $com.github.apple.coremltools.version8.3.0¢@
 
 
 @*$
-@model_path/weights/weight.binÄ∞¯
+@model_path/weights/weight.binÄ∞˙
 conv)
 weight
 
@@ -373,29 +372,29 @@ $com.github.apple.coremltools.version8.3.0¢@
 input_3_cast_fp16"
 pad_type
 
-input_5_pad_type_03
-input_5_cast_fp16
-
+input_5_pad_type_05
+input_5_cast_fp16 
+
 
 
-@
-(
-(*'
+@
+Ä
+Ä*'
 name
 
 "
-input_5_cast_fp16Ä
+input_5_cast_fp16Ç
 silu
 x
 
-input_5_cast_fp163
-input_7_cast_fp16
-
+input_5_cast_fp165
+input_7_cast_fp16 
+
 
 
-@
-(
-(*'
+@
+Ä
+Ä*'
 name
 
 "
@@ -514,7 +513,7 @@ $com.github.apple.coremltools.version8.3.0¢@
 
 
 @*$
-@model_path/weights/weight.binÄÚÄ
+@model_path/weights/weight.binÄÚÇ
 conv-
 weight#
 !
@@ -539,29 +538,29 @@ $com.github.apple.coremltools.version8.3.0¢@
 input_7_cast_fp16"
 pad_type
 
-input_9_pad_type_03
-input_9_cast_fp16
-
+input_9_pad_type_05
+input_9_cast_fp16 
+
 
 
-@
-(
-(*'
+@
+Ä
+Ä*'
 name
 
 "
-input_9_cast_fp16}
+input_9_cast_fp16
 silu
 x
 
-input_9_cast_fp162
-var_83_cast_fp16
-
+input_9_cast_fp164
+var_83_cast_fp16 
+
 
 
-@
-(
-(*%
+@
+Ä
+Ä*%
 name
 
 "
@@ -591,7 +590,7 @@ $com.github.apple.coremltools.version8.3.0¢@
 val
 
 
-Î
+Ô
 split
 split_sizes
 
@@ -602,21 +601,21 @@ $com.github.apple.coremltools.version8.3.0¢@
 var_85_axis_0
 x
 
-var_83_cast_fp164
-var_85_cast_fp16_0
-
+var_83_cast_fp166
+var_85_cast_fp16_0 
+
 
 
- 
-(
-(4
-var_85_cast_fp16_1
-
+ 
+Ä
+Ä6
+var_85_cast_fp16_1 
+
 
 
- 
-(
-(*%
+ 
+Ä
+Ä*%
 name
 
 "
@@ -725,7 +724,7 @@ $com.github.apple.coremltools.version8.3.0¢@
 
 
 *$
-@model_path/weights/weight.binÄºê
+@model_path/weights/weight.binÄºí
 conv1
 weight'
 %
@@ -750,29 +749,29 @@ $com.github.apple.coremltools.version8.3.0¢@
 var_85_cast_fp16_1#
 pad_type
 
-input_13_pad_type_04
-input_13_cast_fp16
-
+input_13_pad_type_06
+input_13_cast_fp16 
+
 
 
-
-(
-(*(
+
+Ä
+Ä*(
 name 
 
 "
-input_13_cast_fp16É
+input_13_cast_fp16Ö
 silu
 x
 
-input_13_cast_fp164
-input_15_cast_fp16
-
+input_13_cast_fp166
+input_15_cast_fp16 
+
 
 
-
-(
-(*(
+
+Ä
+Ä*(
 name 
 
 "
@@ -881,7 +880,7 @@ $com.github.apple.coremltools.version8.3.0¢@
 
 
  *$
-@model_path/weights/weight.bin¿Öê
+@model_path/weights/weight.bin¿Öí
 conv1
 weight'
 %
@@ -906,47 +905,47 @@ $com.github.apple.coremltools.version8.3.0¢@
 input_15_cast_fp16#
 pad_type
 
-input_17_pad_type_04
-input_17_cast_fp16
-
+input_17_pad_type_06
+input_17_cast_fp16 
+
 
 
- 
-(
-(*(
+ 
+Ä
+Ä*(
 name 
 
 "
-input_17_cast_fp16Ä
+input_17_cast_fp16Ç
 silu
 x
 
-input_17_cast_fp163
-var_107_cast_fp16
-
+input_17_cast_fp165
+var_107_cast_fp16 
+
 
 
- 
-(
-(*&
+ 
+Ä
+Ä*&
 name
 
 "
-op_107_cast_fp16õ
+op_107_cast_fp16ù
 add
 x
 
 var_85_cast_fp16_1
 y
 
-var_107_cast_fp163
-var_108_cast_fp16
-
+var_107_cast_fp165
+var_108_cast_fp16 
+
 
 
- 
-(
-(*&
+ 
+Ä
+Ä*&
 name
 
 "
@@ -961,7 +960,7 @@ $com.github.apple.coremltools.version8.3.0¢@
 val
 
 
- Ú
+ Ù
 concatK
 valuesA
 
@@ -977,14 +976,14 @@ interleave
 axis
 
 
-var_704
-input_19_cast_fp16
-
+var_706
+input_19_cast_fp16 
+
 
 
-`
-(
-(*(
+`
+Ä
+Ä*(
 name 
 
 "
@@ -1090,7 +1089,7 @@ interleave
 
 
 Ä*$
-@model_path/weights/weight.binÄ«â
+@model_path/weights/weight.binÄ«ã
 conv-
 weight#
 !
@@ -1115,29 +1114,29 @@ interleave
 input_19_cast_fp16#
 pad_type
 
-input_21_pad_type_05
-input_21_cast_fp16
-
+input_21_pad_type_07
+input_21_cast_fp16!
+
 
 
-Ä
-(
-(*(
+Ä
+Ä
+Ä*(
 name 
 
 "
-input_21_cast_fp16Ñ
+input_21_cast_fp16Ü
 silu
 x
 
-input_21_cast_fp165
-input_23_cast_fp16
-
+input_21_cast_fp167
+input_23_cast_fp16!
+
 
 
-Ä
-(
-(*(
+Ä
+Ä
+Ä*(
 name 
 
 "
@@ -1244,7 +1243,7 @@ interleave
 
 
 Ä*$
-@model_path/weights/weight.binÄ Å
+@model_path/weights/weight.binÄ É
 conv)
 weight
 
@@ -1269,29 +1268,29 @@ interleave
 input_23_cast_fp16#
 pad_type
 
-input_25_pad_type_05
-input_25_cast_fp16
-
+input_25_pad_type_07
+input_25_cast_fp16!
+
 
 
-Ä
-
-*(
+Ä
+Ä
+Ä*(
 name 
 
 "
-input_25_cast_fp16Ñ
+input_25_cast_fp16Ü
 silu
 x
 
-input_25_cast_fp165
-input_27_cast_fp16
-
+input_25_cast_fp167
+input_27_cast_fp16!
+
 
 
-Ä
-
-*(
+Ä
+Ä
+Ä*(
 name 
 
 "
@@ -1409,7 +1408,7 @@ interleave
 
 
 Ä*$
-@model_path/weights/weight.binÄÕâ
+@model_path/weights/weight.binÄÕã
 conv-
 weight#
 !
@@ -1434,29 +1433,29 @@ interleave
 input_27_cast_fp16#
 pad_type
 
-input_29_pad_type_05
-input_29_cast_fp16
-
+input_29_pad_type_07
+input_29_cast_fp16!
+
 
 
-Ä
-
-*(
+Ä
+Ä
+Ä*(
 name 
 
 "
-input_29_cast_fp16Å
+input_29_cast_fp16É
 silu
 x
 
-input_29_cast_fp164
-var_151_cast_fp16
-
+input_29_cast_fp166
+var_151_cast_fp16!
+
 
 
-Ä
-
-*&
+Ä
+Ä
+Ä*&
 name
 
 "
@@ -1487,7 +1486,7 @@ interleave
 val
 
 
-Ò
+ı
 split
 split_sizes
 	
@@ -1497,21 +1496,21 @@ interleave
 var_153_axis_0
 x
 
-var_151_cast_fp165
-var_153_cast_fp16_0
-
+var_151_cast_fp167
+var_153_cast_fp16_0 
+
 
 
-@
-
-5
-var_153_cast_fp16_1
-
+@
+Ä
+Ä7
+var_153_cast_fp16_1 
+
 
 
-@
-
-*&
+@
+Ä
+Ä*&
 name
 
 "
@@ -1620,7 +1619,7 @@ interleave
 
 
  *$
-@model_path/weights/weight.binÄë
+@model_path/weights/weight.binÄì
 conv1
 weight'
 %
@@ -1645,29 +1644,29 @@ interleave
 var_153_cast_fp16_1#
 pad_type
 
-input_33_pad_type_04
-input_33_cast_fp16
-
+input_33_pad_type_06
+input_33_cast_fp16 
+
 
 
- 
-
-*(
+ 
+Ä
+Ä*(
 name 
 
 "
-input_33_cast_fp16É
+input_33_cast_fp16Ö
 silu
 x
 
-input_33_cast_fp164
-input_35_cast_fp16
-
+input_33_cast_fp166
+input_35_cast_fp16 
+
 
 
- 
-
-*(
+ 
+Ä
+Ä*(
 name 
 
 "
@@ -1776,7 +1775,7 @@ interleave
 
 
 @*$
-@model_path/weights/weight.bin¿ëê
+@model_path/weights/weight.bin¿ëí
 conv1
 weight'
 %
@@ -1801,47 +1800,47 @@ interleave
 input_35_cast_fp16#
 pad_type
 
-input_37_pad_type_04
-input_37_cast_fp16
-
+input_37_pad_type_06
+input_37_cast_fp16 
+
 
 
-@
-
-*(
+@
+Ä
+Ä*(
 name 
 
 "
-input_37_cast_fp16Ä
+input_37_cast_fp16Ç
 silu
 x
 
-input_37_cast_fp163
-var_175_cast_fp16
-
+input_37_cast_fp165
+var_175_cast_fp16 
+
 
 
-@
-
-*&
+@
+Ä
+Ä*&
 name
 
 "
-op_175_cast_fp16ú
+op_175_cast_fp16û
 add
 x
 
 var_153_cast_fp16_1
 y
 
-var_175_cast_fp163
-var_176_cast_fp16
-
+var_175_cast_fp165
+var_176_cast_fp16 
+
 
 
-@
-
-*&
+@
+Ä
+Ä*&
 name
 
 "
@@ -1856,7 +1855,7 @@ interleave
 val
 
 
- ˆ
+ ¯
 concatM
 valuesC
 
@@ -1871,14 +1870,14 @@ interleave
 input_39_interleave_0
 axis
 	
-var_1385
-input_39_cast_fp16
-
+var_1387
+input_39_cast_fp16!
+
 
 
-¿
-
-*(
+¿
+Ä
+Ä*(
 name 
 
 "
@@ -1984,7 +1983,7 @@ interleave
 
 
 Ä*$
-@model_path/weights/weight.bin¿ì$â
+@model_path/weights/weight.bin¿ì$ã
 conv-
 weight#
 !
@@ -2009,29 +2008,29 @@ interleave
 input_39_cast_fp16#
 pad_type
 
-input_41_pad_type_05
-input_41_cast_fp16
-
+input_41_pad_type_07
+input_41_cast_fp16!
+
 
 
-Ä
-
-*(
+Ä
+Ä
+Ä*(
 name 
 
 "
-input_41_cast_fp16Ñ
+input_41_cast_fp16Ü
 silu
 x
 
-input_41_cast_fp165
-input_43_cast_fp16
-
+input_41_cast_fp167
+input_43_cast_fp16!
+
 
 
-Ä
-
-*(
+Ä
+Ä
+Ä*(
 name 
 
 "
@@ -2169,10 +2168,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2186,10 +2183,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2338,10 +2333,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2355,10 +2348,8 @@ interleave
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -2406,19 +2397,15 @@ interleave
 
 
 Ä
-
-
-
-6
+@
+@6
 var_221_cast_fp16_1
 
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -2557,10 +2544,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2574,10 +2559,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2717,10 +2700,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2734,10 +2715,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2877,10 +2856,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -2894,10 +2871,8 @@ interleave
 
 
 @
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -2914,10 +2889,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3057,10 +3030,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3074,10 +3045,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3217,10 +3186,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3234,10 +3201,8 @@ interleave
 
 
 @
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -3254,10 +3219,8 @@ interleave
 
 
 @
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -3396,10 +3359,8 @@ interleave
 
 
 @
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3413,10 +3374,8 @@ interleave
 
 
 @
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -3450,10 +3409,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3590,10 +3547,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3607,10 +3562,8 @@ interleave
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -3646,10 +3599,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3786,10 +3737,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3803,10 +3752,8 @@ interleave
 
 
 Ä
-
-
-
-*(
+@
+@*(
 name 
 
 "
@@ -3944,8 +3891,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -3959,8 +3906,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -4109,8 +4056,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -4124,8 +4071,8 @@ interleave
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -4173,15 +4120,15 @@ interleave
 
 
 Ä
-
-6
+ 
+ 6
 var_345_cast_fp16_1
 
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -4318,8 +4265,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -4333,8 +4280,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -4472,8 +4419,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -4487,8 +4434,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -4626,8 +4573,8 @@ interleave
 
 
 Ä
-
-*(
+ 
+ *(
 name 
 
 "
@@ -4641,8 +4588,8 @@ interleave
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -4659,8 +4606,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -4798,8 +4745,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -4813,8 +4760,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -4952,8 +4899,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -4967,8 +4914,8 @@ interleave
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -4985,8 +4932,8 @@ interleave
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -5123,8 +5070,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5138,8 +5085,8 @@ interleave
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -5173,8 +5120,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5311,8 +5258,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5326,8 +5273,8 @@ interleave
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -5363,8 +5310,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5501,8 +5448,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5516,8 +5463,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5666,8 +5613,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5681,8 +5628,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5782,8 +5729,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5883,8 +5830,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -5984,8 +5931,8 @@ interleave
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -6023,8 +5970,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -6161,8 +6108,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -6176,8 +6123,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -6339,8 +6286,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -6354,8 +6301,8 @@ $""
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -6403,15 +6350,15 @@ $""
 
 
 Ä
-
-6
+ 
+ 6
 var_506_cast_fp16_1
 
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -6548,12 +6495,12 @@ $""
 
 
 Ä
-
-*%
+ 
+ *%
 name
 
 "
-qkv_1_cast_fp16b
+qkv_1_cast_fp16c
 const
 var_531
 
@@ -6563,27 +6510,28 @@ $""
 
 
 "
-op_531*"
-val
+op_531*#
+val
 
 
-
-	
-Äó
+
+
+
+ÄÄò
 reshape
 x
 
 qkv_1_cast_fp16
 shape
 	
-var_5314
-var_532_cast_fp16
-
+var_5315
+var_532_cast_fp16 
+
 
 
 
-Ä
-*&
+Ä
+Ä*&
 name
 
 "
@@ -6614,7 +6562,7 @@ $""
 val
 
 
-®
+´
 split
 split_sizes
 	
@@ -6624,28 +6572,28 @@ $""
 var_534_axis_0
 x
 
-var_532_cast_fp165
-var_534_cast_fp16_0
-
+var_532_cast_fp166
+var_534_cast_fp16_0
+
 
 
 
- 
-5
-var_534_cast_fp16_1
-
+ 
+Ä6
+var_534_cast_fp16_1
+
 
 
 
- 
-5
-var_534_cast_fp16_2
-
+ 
+Ä6
+var_534_cast_fp16_2
+
 
 
 
-@
-*&
+@
+Ä*&
 name
 
 "
@@ -6671,7 +6619,7 @@ $""
 val
 
 
- ı
+ ˜
 matmul(
 transpose_y
 
@@ -6684,14 +6632,14 @@ $""
 var_534_cast_fp16_0
 y
 
-var_534_cast_fp16_13
-var_539_cast_fp16
-
+var_534_cast_fp16_15
+var_539_cast_fp16 
+
 
 
-
-
-*&
+
+Ä
+Ä*&
 name
 
 "
@@ -6708,39 +6656,39 @@ $""
 
 
 :
-®1ó
+®1ô
 mul
 x
 
 var_539_cast_fp16
 y
 
-var_540_to_fp162
-attn_1_cast_fp16
-
+var_540_to_fp164
+attn_1_cast_fp16 
+
 
 
-
-
-*&
+
+Ä
+Ä*&
 name
 
 "
-attn_1_cast_fp16ï
+attn_1_cast_fp16ó
 softmax
 x
 
 attn_1_cast_fp16
 axis
 	
-var_4862
-attn_3_cast_fp16
-
+var_4864
+attn_3_cast_fp16 
+
 
 
-
-
-*&
+
+Ä
+Ä*&
 name
 
 "
@@ -6766,7 +6714,7 @@ $""
 val
 
 
-Ú
+Û
 matmul(
 transpose_y
 
@@ -6779,14 +6727,14 @@ $""
 var_534_cast_fp16_2
 y
 
-attn_3_cast_fp163
-var_544_cast_fp16
-
+attn_3_cast_fp164
+var_544_cast_fp16
+
 
 
 
-@
-*&
+@
+Ä*&
 name
 
 "
@@ -6806,7 +6754,7 @@ $""
 
 
 	
-Äô
+Ä  ô
 reshape
 x
 
@@ -6819,8 +6767,8 @@ $""
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -6840,7 +6788,7 @@ $""
 
 
 	
-Ä†
+Ä  †
 reshape
 x
 
@@ -6853,8 +6801,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -6992,8 +6940,8 @@ $""
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -7010,8 +6958,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -7148,8 +7096,8 @@ $""
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -7166,8 +7114,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -7304,8 +7252,8 @@ $model_10_m_0_ffn_0_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -7319,8 +7267,8 @@ $model_10_m_0_ffn_0_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -7457,8 +7405,8 @@ $model_10_m_0_ffn_1_conv_bias_to_fp16
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -7475,8 +7423,8 @@ $model_10_m_0_ffn_1_conv_bias_to_fp16
 
 
 Ä
-
-*#
+ 
+ *#
 name
 
 "
@@ -7510,8 +7458,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -7648,8 +7596,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -7663,8 +7611,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -7710,10 +7658,8 @@ $""
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -7759,10 +7705,8 @@ interleave
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -7911,10 +7855,8 @@ $""
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -7928,10 +7870,8 @@ $""
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -7979,19 +7919,15 @@ $""
 
 
 Ä
-
-
-
-6
+@
+@6
 var_624_cast_fp16_1
 
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -8131,10 +8067,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -8148,10 +8082,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -8289,10 +8221,8 @@ $
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -8306,10 +8236,8 @@ $
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -8326,10 +8254,8 @@ $
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -8365,10 +8291,8 @@ interleave
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -8505,10 +8429,8 @@ $""
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -8522,10 +8444,8 @@ $""
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -8555,7 +8475,7 @@ $""
 
 
 
-   @â
+   @ã
 upsample_nearest_neighbor
 x
 
@@ -8565,14 +8485,14 @@ $""
 var_662_scale_factor_width_08
 scale_factor_height!
 
-var_662_scale_factor_height_04
-var_662_cast_fp16
-
+var_662_scale_factor_height_06
+var_662_cast_fp16!
+
 
 
-Ä
-
-*&
+Ä
+Ä
+Ä*&
 name
 
 "
@@ -8599,7 +8519,7 @@ $""
 val
 
 
- ·
+ „
 concat5
 values+
 
@@ -8612,14 +8532,14 @@ interleave
 input_171_interleave_0
 axis
 	
-var_6636
-input_171_cast_fp16
-
+var_6638
+input_171_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
@@ -8737,7 +8657,7 @@ $""
 
 
 Ä*%
-@model_path/weights/weight.bin¿‹’ì
+@model_path/weights/weight.bin¿‹’ï
 conv.
 weight$
 "
@@ -8762,29 +8682,29 @@ $""
 input_171_cast_fp16$
 pad_type
 
-input_173_pad_type_06
-input_173_cast_fp16
-
+input_173_pad_type_08
+input_173_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
-input_173_cast_fp16Ç
+input_173_cast_fp16Ñ
 silu
 x
 
-input_173_cast_fp164
-var_683_cast_fp16
-
+input_173_cast_fp166
+var_683_cast_fp16!
+
 
 
-Ä
-
-*&
+Ä
+Ä
+Ä*&
 name
 
 "
@@ -8815,7 +8735,7 @@ $""
 val
 
 
-Ò
+ı
 split
 split_sizes
 	
@@ -8825,21 +8745,21 @@ $""
 var_685_axis_0
 x
 
-var_683_cast_fp165
-var_685_cast_fp16_0
-
+var_683_cast_fp167
+var_685_cast_fp16_0 
+
 
 
-@
-
-5
-var_685_cast_fp16_1
-
+@
+Ä
+Ä7
+var_685_cast_fp16_1 
+
 
 
-@
-
-*&
+@
+Ä
+Ä*&
 name
 
 "
@@ -8948,7 +8868,7 @@ $model_16_m_0_cv1_conv_weight_to_fp16*N
 
 
  *%
-@model_path/weights/weight.bin¿ˇ◊ö
+@model_path/weights/weight.bin¿ˇ◊ú
 conv2
 weight(
 &
@@ -8973,29 +8893,29 @@ $
 var_685_cast_fp16_1$
 pad_type
 
-input_177_pad_type_05
-input_177_cast_fp16
-
+input_177_pad_type_07
+input_177_cast_fp16 
+
 
 
- 
-
-*)
+ 
+Ä
+Ä*)
 name!
 
 "
-input_177_cast_fp16Ü
+input_177_cast_fp16à
 silu
 x
 
-input_177_cast_fp165
-input_179_cast_fp16
-
+input_177_cast_fp167
+input_179_cast_fp16 
+
 
 
- 
-
-*)
+ 
+Ä
+Ä*)
 name!
 
 "
@@ -9104,7 +9024,7 @@ $model_16_m_0_cv2_conv_weight_to_fp16*N
 
 
 @*%
-@model_path/weights/weight.binÄ°⁄ö
+@model_path/weights/weight.binÄ°⁄ú
 conv2
 weight(
 &
@@ -9129,47 +9049,47 @@ $
 input_179_cast_fp16$
 pad_type
 
-input_181_pad_type_05
-input_181_cast_fp16
-
+input_181_pad_type_07
+input_181_cast_fp16 
+
 
 
-@
-
-*)
+@
+Ä
+Ä*)
 name!
 
 "
-input_181_cast_fp16Å
+input_181_cast_fp16É
 silu
 x
 
-input_181_cast_fp163
-var_707_cast_fp16
-
+input_181_cast_fp165
+var_707_cast_fp16 
+
 
 
-@
-
-*&
+@
+Ä
+Ä*&
 name
 
 "
-op_707_cast_fp16ú
+op_707_cast_fp16û
 add
 x
 
 var_685_cast_fp16_1
 y
 
-var_707_cast_fp163
-var_708_cast_fp16
-
+var_707_cast_fp165
+var_708_cast_fp16 
+
 
 
-@
-
-*&
+@
+Ä
+Ä*&
 name
 
 "
@@ -9184,7 +9104,7 @@ $
 val
 
 
- ˘
+ ˚
 concatM
 valuesC
 
@@ -9199,14 +9119,14 @@ interleave
 input_183_interleave_0
 axis
 	
-var_6706
-input_183_cast_fp16
-
+var_6708
+input_183_cast_fp16!
+
 
 
-¿
-
-*)
+¿
+Ä
+Ä*)
 name!
 
 "
@@ -9312,7 +9232,7 @@ $""
 
 
 Ä*%
-@model_path/weights/weight.binÄ£›ì
+@model_path/weights/weight.binÄ£›ï
 conv.
 weight$
 "
@@ -9337,29 +9257,29 @@ $""
 input_183_cast_fp16$
 pad_type
 
-input_185_pad_type_06
-input_185_cast_fp16
-
+input_185_pad_type_08
+input_185_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
-input_185_cast_fp16á
+input_185_cast_fp16â
 silu
 x
 
-input_185_cast_fp166
-input_187_cast_fp16
-
+input_185_cast_fp168
+input_187_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
@@ -9497,10 +9417,8 @@ $""
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -9514,10 +9432,8 @@ $""
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -9563,10 +9479,8 @@ interleave
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -9715,10 +9629,8 @@ $""
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -9732,10 +9644,8 @@ $""
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -9783,19 +9693,15 @@ $""
 
 
 Ä
-
-
-
-6
+@
+@6
 var_756_cast_fp16_1
 
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -9935,10 +9841,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -9952,10 +9856,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -10093,10 +9995,8 @@ $
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -10110,10 +10010,8 @@ $
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -10130,10 +10028,8 @@ $
 
 
 Ä
-
-
-
-*&
+@
+@*&
 name
 
 "
@@ -10169,10 +10065,8 @@ interleave
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -10309,10 +10203,8 @@ $""
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -10326,10 +10218,8 @@ $""
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -10467,8 +10357,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -10482,8 +10372,8 @@ $""
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -10529,8 +10419,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -10679,8 +10569,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -10694,8 +10584,8 @@ $""
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -10743,15 +10633,15 @@ $""
 
 
 Ä
-
-6
+ 
+ 6
 var_827_cast_fp16_1
 
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -10888,8 +10778,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -10903,8 +10793,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11042,8 +10932,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11057,8 +10947,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11196,8 +11086,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11211,8 +11101,8 @@ $
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -11229,8 +11119,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11368,8 +11258,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11383,8 +11273,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11522,8 +11412,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11537,8 +11427,8 @@ $
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -11555,8 +11445,8 @@ $
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -11693,8 +11583,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11708,8 +11598,8 @@ $
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -11743,8 +11633,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11881,8 +11771,8 @@ $
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -11896,8 +11786,8 @@ $
 
 
 Ä
-
-*&
+ 
+ *&
 name
 
 "
@@ -11933,8 +11823,8 @@ interleave
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -12071,8 +11961,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -12086,8 +11976,8 @@ $""
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -12220,7 +12110,7 @@ $model_23_cv2_0_0_conv_weight_to_fp16*O
 
 
 @*%
-@model_path/weights/weight.binÄÊ¢ö
+@model_path/weights/weight.binÄÊ¢ú
 conv2
 weight(
 &
@@ -12245,29 +12135,29 @@ $
 input_187_cast_fp16$
 pad_type
 
-input_245_pad_type_05
-input_245_cast_fp16
-
+input_245_pad_type_07
+input_245_cast_fp16 
+
 
 
-@
-
-*)
+@
+Ä
+Ä*)
 name!
 
 "
-input_245_cast_fp16Ü
+input_245_cast_fp16à
 silu
 x
 
-input_245_cast_fp165
-input_247_cast_fp16
-
+input_245_cast_fp167
+input_247_cast_fp16 
+
 
 
-@
-
-*)
+@
+Ä
+Ä*)
 name!
 
 "
@@ -12376,7 +12266,7 @@ $model_23_cv2_0_1_conv_weight_to_fp16*N
 
 
 @*%
-@model_path/weights/weight.binÄ®ßö
+@model_path/weights/weight.binÄ®ßú
 conv2
 weight(
 &
@@ -12401,29 +12291,29 @@ $
 input_247_cast_fp16$
 pad_type
 
-input_249_pad_type_05
-input_249_cast_fp16
-
+input_249_pad_type_07
+input_249_cast_fp16 
+
 
 
-@
-
-*)
+@
+Ä
+Ä*)
 name!
 
 "
-input_249_cast_fp16Ü
+input_249_cast_fp16à
 silu
 x
 
-input_249_cast_fp165
-input_251_cast_fp16
-
+input_249_cast_fp167
+input_251_cast_fp16 
+
 
 
-@
-
-*)
+@
+Ä
+Ä*)
 name!
 
 "
@@ -12531,7 +12421,7 @@ $
 
 
 @*%
-@model_path/weights/weight.binÄÍßÅ
+@model_path/weights/weight.binÄÍßÉ
 conv-
 weight#
 !
@@ -12556,14 +12446,14 @@ $
 input_251_cast_fp16"
 pad_type
 
-var_975_pad_type_03
-var_975_cast_fp16
-
+var_975_pad_type_05
+var_975_cast_fp16 
+
 
 
-@
-
-*&
+@
+Ä
+Ä*&
 name
 
 "
@@ -12670,7 +12560,7 @@ $model_23_cv3_0_0_0_conv_bias_to_fp16*=
 
 
 Ä*%
-@model_path/weights/weight.binÄ˛ßü
+@model_path/weights/weight.binÄ˛ß°
 conv4
 weight*
 (
@@ -12695,29 +12585,29 @@ $model_23_cv3_0_0_0_conv_bias_to_fp16"
 input_187_cast_fp16$
 pad_type
 
-input_253_pad_type_06
-input_253_cast_fp16
-
+input_253_pad_type_08
+input_253_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
-input_253_cast_fp16á
+input_253_cast_fp16â
 silu
 x
 
-input_253_cast_fp166
-input_255_cast_fp16
-
+input_253_cast_fp168
+input_255_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
@@ -12823,7 +12713,7 @@ $model_23_cv3_0_0_1_conv_bias_to_fp16*=
 
 
 Ä*%
-@model_path/weights/weight.binÄÅ™ü
+@model_path/weights/weight.binÄÅ™°
 conv4
 weight*
 (
@@ -12848,29 +12738,29 @@ $model_23_cv3_0_0_1_conv_bias_to_fp16"
 input_255_cast_fp16$
 pad_type
 
-input_257_pad_type_06
-input_257_cast_fp16
-
+input_257_pad_type_08
+input_257_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
-input_257_cast_fp16á
+input_257_cast_fp16â
 silu
 x
 
-input_257_cast_fp166
-input_259_cast_fp16
-
+input_257_cast_fp168
+input_259_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
@@ -12977,7 +12867,7 @@ $model_23_cv3_0_1_0_conv_bias_to_fp16*=
 
 
 Ä*%
-@model_path/weights/weight.binÄñ™ü
+@model_path/weights/weight.binÄñ™°
 conv4
 weight*
 (
@@ -13002,29 +12892,29 @@ $model_23_cv3_0_1_0_conv_bias_to_fp16"
 input_259_cast_fp16$
 pad_type
 
-input_261_pad_type_06
-input_261_cast_fp16
-
+input_261_pad_type_08
+input_261_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
-input_261_cast_fp16á
+input_261_cast_fp16â
 silu
 x
 
-input_261_cast_fp166
-input_263_cast_fp16
-
+input_261_cast_fp168
+input_263_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
@@ -13130,7 +13020,7 @@ $model_23_cv3_0_1_1_conv_bias_to_fp16*=
 
 
 Ä*%
-@model_path/weights/weight.binÄô¨ü
+@model_path/weights/weight.binÄô¨°
 conv4
 weight*
 (
@@ -13155,29 +13045,29 @@ $model_23_cv3_0_1_1_conv_bias_to_fp16"
 input_263_cast_fp16$
 pad_type
 
-input_265_pad_type_06
-input_265_cast_fp16
-
+input_265_pad_type_08
+input_265_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
-input_265_cast_fp16á
+input_265_cast_fp16â
 silu
 x
 
-input_265_cast_fp166
-input_267_cast_fp16
-
+input_265_cast_fp168
+input_267_cast_fp16!
+
 
 
-Ä
-
-*)
+Ä
+Ä
+Ä*)
 name!
 
 "
@@ -13283,7 +13173,7 @@ $model_23_cv3_0_1_1_conv_bias_to_fp16"
 
 
 ë*%
-@model_path/weights/weight.binÄæ≤â
+@model_path/weights/weight.binÄæ≤ã
 conv-
 weight#
 !
@@ -13308,14 +13198,14 @@ $model_23_cv3_0_1_1_conv_bias_to_fp16"
 input_267_cast_fp16#
 pad_type
 
-var_1025_pad_type_05
-var_1025_cast_fp16
-
+var_1025_pad_type_07
+var_1025_cast_fp16!
+
 
 
-ë
-
-*'
+ë
+Ä
+Ä*'
 name
 
 "
@@ -13330,7 +13220,7 @@ $model_23_cv3_0_1_1_conv_bias_to_fp16"
 val
 
 
- “
+ ‘
 concat5
 values+
 
@@ -13343,14 +13233,14 @@ interleave
 xi_1_interleave_0
 axis
 	
-var_9311
-xi_1_cast_fp16
-
+var_9313
+xi_1_cast_fp16!
+
 
 
-—
-
-*$
+—
+Ä
+Ä*$
 name
 
 "
@@ -13490,10 +13380,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -13507,10 +13395,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -13650,10 +13536,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -13667,10 +13551,8 @@ $
 
 
 @
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -13809,10 +13691,8 @@ $
 
 
 @
-
-
-
-*'
+@
+@*'
 name
 
 "
@@ -13950,10 +13830,8 @@ $model_23_cv3_1_0_0_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -13967,10 +13845,8 @@ $model_23_cv3_1_0_0_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -14107,10 +13983,8 @@ $model_23_cv3_1_0_1_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -14124,10 +13998,8 @@ $model_23_cv3_1_0_1_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -14265,10 +14137,8 @@ $model_23_cv3_1_1_0_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -14282,10 +14152,8 @@ $model_23_cv3_1_1_0_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -14422,10 +14290,8 @@ $model_23_cv3_1_1_1_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -14439,10 +14305,8 @@ $model_23_cv3_1_1_1_conv_bias_to_fp16"
 
 
 Ä
-
-
-
-*)
+@
+@*)
 name!
 
 "
@@ -14579,10 +14443,8 @@ $model_23_cv3_1_1_1_conv_bias_to_fp16"
 
 
 ë
-
-
-
-*'
+@
+@*'
 name
 
 "
@@ -14616,10 +14478,8 @@ interleave
 
 
 —
-
-
-
-*$
+@
+@*$
 name
 
 "
@@ -14759,8 +14619,8 @@ $
 
 
 @
-
-*)
+ 
+ *)
 name!
 
 "
@@ -14774,8 +14634,8 @@ $
 
 
 @
-
-*)
+ 
+ *)
 name!
 
 "
@@ -14915,8 +14775,8 @@ $
 
 
 @
-
-*)
+ 
+ *)
 name!
 
 "
@@ -14930,8 +14790,8 @@ $
 
 
 @
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15070,8 +14930,8 @@ $
 
 
 @
-
-*'
+ 
+ *'
 name
 
 "
@@ -15209,8 +15069,8 @@ $model_23_cv3_2_0_0_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15224,8 +15084,8 @@ $model_23_cv3_2_0_0_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15362,8 +15222,8 @@ $model_23_cv3_2_0_1_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15377,8 +15237,8 @@ $model_23_cv3_2_0_1_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15516,8 +15376,8 @@ $model_23_cv3_2_1_0_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15531,8 +15391,8 @@ $model_23_cv3_2_1_0_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15669,8 +15529,8 @@ $model_23_cv3_2_1_1_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15684,8 +15544,8 @@ $model_23_cv3_2_1_1_conv_bias_to_fp16"
 
 
 Ä
-
-*)
+ 
+ *)
 name!
 
 "
@@ -15822,8 +15682,8 @@ $model_23_cv3_2_1_1_conv_bias_to_fp16"
 
 
 ë
-
-*'
+ 
+ *'
 name
 
 "
@@ -15857,8 +15717,8 @@ interleave
 
 
 —
-
-*"
+ 
+ *"
 name
 
 "
@@ -15877,7 +15737,7 @@ interleave
 
 
 
-—ˇˇˇˇˇˇˇˇˇî
+—ˇˇˇˇˇˇˇˇˇï
 reshape
 x
 
@@ -15885,13 +15745,13 @@ interleave
 shape
 
 
-var_11890
-var_1190_cast_fp16
-
+var_11891
+var_1190_cast_fp16
+
 
 
-—
-ê*'
+—
+ÄÄ*'
 name
 
 "
@@ -15910,7 +15770,7 @@ interleave
 
 
 
-—ˇˇˇˇˇˇˇˇˇì
+—ˇˇˇˇˇˇˇˇˇî
 reshape
 x
 
@@ -15918,13 +15778,13 @@ interleave
 shape
 
 
-var_1191/
-var_1192_cast_fp16
-
+var_11910
+var_1192_cast_fp16
+
 
 
-—
-d*'
+—
+Ä *'
 name
 
 "
@@ -15943,7 +15803,7 @@ interleave
 
 
 
-—ˇˇˇˇˇˇˇˇˇë
+—ˇˇˇˇˇˇˇˇˇí
 reshape
 x
 
@@ -15951,13 +15811,13 @@ interleave
 shape
 
 
-var_1193/
-var_1194_cast_fp16
-
+var_11930
+var_1194_cast_fp16
+
 
 
-—
-*'
+—
+Ä*'
 name
 
 "
@@ -15972,7 +15832,7 @@ interleave
 val
 
 
- Ô
+ 
 concatL
 valuesB
 
@@ -15987,13 +15847,13 @@ interleave
 var_1196_interleave_0
 axis
 	
-var_9250
-var_1196_cast_fp16
-
+var_9251
+var_1196_cast_fp16
+
 
 
-—
-ç*'
+—
+Ä®*'
 name
 
 "
@@ -16023,7 +15883,7 @@ interleave
 val
 
 
-Ó
+
 split
 split_sizes
 
@@ -16034,23 +15894,23 @@ interleave
 var_1198_axis_0
 x
 
-var_1196_cast_fp161
-var_1198_cast_fp16_0
-
-
-
-@
-ç2
-var_1198_cast_fp16_1
+var_1196_cast_fp162
+var_1198_cast_fp16_0
 
 
+
+@
+Ä®3
+var_1198_cast_fp16_1
+
+
 
-ë
-ç*'
+ë
+Ä®*'
 name
 
 "
-op_1198_cast_fp16d
+op_1198_cast_fp16e
 const
 var_1204
 
@@ -16059,13 +15919,14 @@ interleave
 name
 
 "	
-op_1204*"
-val
+op_1204*#
+val
 
 
-
-	
-çü
+
+
+
+Ä®†
 reshape
 x
 
@@ -16073,14 +15934,14 @@ interleave
 shape
 
 
-var_12045
-var_1205_cast_fp16
-
+var_12046
+var_1205_cast_fp16 
+
 
 
 
-
-ç*'
+
+Ä®*'
 name
 
 "
@@ -16100,39 +15961,39 @@ interleave
 
 
 
- ü
+ †
 	transpose
 x
 
 var_1205_cast_fp16
 perm
 
-var_1206_perm_05
-var_1206_cast_fp16
-
+var_1206_perm_06
+var_1206_cast_fp16 
+
 
 
 
-
-ç*!
+
+Ä®*!
 name
 
 "
-transpose_0ñ
+transpose_0ó
 softmax
 x
 
 var_1206_cast_fp16
 axis
 	
-var_9312
-input_cast_fp16
-
+var_9313
+input_cast_fp16 
+
 
 
 
-
-ç*%
+
+Ä®*%
 name
 
 "
@@ -16224,7 +16085,7 @@ $""
 
 
 *%
-@model_path/weights/weight.binÄ‘ê	€
+@model_path/weights/weight.binÄ‘ê	‹
 conv.
 weight$
 "
@@ -16246,18 +16107,18 @@ $""
 input_cast_fp16#
 pad_type
 
-var_1213_pad_type_05
-var_1213_cast_fp16
-
+var_1213_pad_type_06
+var_1213_cast_fp16 
+
 
 
 
-
-ç*'
+
+Ä®*'
 name
 
 "
-op_1213_cast_fp16c
+op_1213_cast_fp16d
 const
 var_1214
 
@@ -16266,14 +16127,13 @@ $""
 name
 
 "	
-op_1214*!
-val
+op_1214*"
+val
 
 
-
-
-
-çò
+
+	
+Ä®ô
 reshape
 x
 
@@ -16281,13 +16141,13 @@ $""
 shape
 
 
-var_1214/
-distance_cast_fp16
-
+var_12140
+distance_cast_fp16
+
 
 
-
-ç*(
+
+Ä®*(
 name 
 
 "
@@ -16317,7 +16177,7 @@ $""
 val
 
 
-˚
+˝
 split)
 split_sizes
 
@@ -16327,88 +16187,88 @@ $""
 var_1217_axis_0
 x
 
-distance_cast_fp161
-var_1217_cast_fp16_0
-
+distance_cast_fp162
+var_1217_cast_fp16_0
+
 
 
-
-ç1
-var_1217_cast_fp16_1
-
+
+Ä®2
+var_1217_cast_fp16_1
+
 
 
-
-ç*'
+
+Ä®*'
 name
 
 "
-op_1217_cast_fp16≥
-const2
-anchor_points_to_fp16
-
+op_1217_cast_fp16µ
+const3
+anchor_points_to_fp16
+
 
 
-
-ç*+
+
+Ä®*+
 name#
 
 "
-anchor_points_to_fp16*I
-valB
-
+anchor_points_to_fp16*J
+valC
+
 
 
-
-ç*%
-@model_path/weights/weight.binÄ’ê	ó
+
+Ä®*%
+@model_path/weights/weight.binÄ’ê	ò
 sub
 x
 
 anchor_points_to_fp16
 y
 
-var_1217_cast_fp16_0+
-x1y1_cast_fp16
-
+var_1217_cast_fp16_0,
+x1y1_cast_fp16
+
 
 
-
-ç*$
+
+Ä®*$
 name
 
 "
-x1y1_cast_fp16ó
+x1y1_cast_fp16ò
 add
 x
 
 anchor_points_to_fp16
 y
 
-var_1217_cast_fp16_1+
-x2y2_cast_fp16
-
+var_1217_cast_fp16_1,
+x2y2_cast_fp16
+
 
 
-
-ç*$
+
+Ä®*$
 name
 
 "
-x2y2_cast_fp16ë
+x2y2_cast_fp16í
 add
 x
 
 x1y1_cast_fp16
 y
 
-x2y2_cast_fp16/
-var_1221_cast_fp16
-
+x2y2_cast_fp160
+var_1221_cast_fp16
+
 
 
-
-ç*'
+
+Ä®*'
 name
 
 "
@@ -16425,37 +16285,37 @@ $""
 
 
 :
- 8Æ
+ 8Ø
 mul
 x
 
 var_1221_cast_fp16#
 y
 
-_inversed_c_xy_y_0_to_fp165
-_inversed_c_xy_cast_fp16
-
+_inversed_c_xy_y_0_to_fp166
+_inversed_c_xy_cast_fp16
+
 
 
-
-ç*.
+
+Ä®*.
 name&
 
 "
-_inversed_c_xy_cast_fp16Ü
+_inversed_c_xy_cast_fp16á
 sub
 x
 
 x2y2_cast_fp16
 y
 
-x1y1_cast_fp16)
-wh_cast_fp16
-
+x1y1_cast_fp16*
+wh_cast_fp16
+
 
 
-
-ç*"
+
+Ä®*"
 name
 
 "
@@ -16470,7 +16330,7 @@ $""
 val
 
 
- ÿ
+ Ÿ
 concat6
 values,
 
@@ -16483,60 +16343,60 @@ interleave
 var_1226_interleave_0
 axis
 	
-var_931/
-var_1226_cast_fp16
-
+var_9310
+var_1226_cast_fp16
+
 
 
-
-ç*'
+
+Ä®*'
 name
 
 "
-op_1226_cast_fp16ö
-const&
-var_918_to_fp16
-
+op_1226_cast_fp16ú
+const'
+var_918_to_fp16
+
 
-
-ç*$
+
+Ä®*$
 name
 
 "
-op_918_to_fp16*C
-val<
-
+op_918_to_fp16*D
+val=
+
 
-
-ç*%
-@model_path/weights/weight.binÄÊê	è
+
+Ä®*%
+@model_path/weights/weight.bin¿ıï	ê
 mul
 x
 
 var_1226_cast_fp16
 y
 
-var_918_to_fp16+
-dbox_cast_fp16
-
+var_918_to_fp16,
+dbox_cast_fp16
+
 
 
-
-ç*$
+
+Ä®*$
 name
 
 "
-dbox_cast_fp16É
+dbox_cast_fp16Ñ
 sigmoid
 x
 
-var_1198_cast_fp16_10
-var_1228_cast_fp16
-
+var_1198_cast_fp16_11
+var_1228_cast_fp16
+
 
 
-ë
-ç*'
+ë
+Ä®*'
 name
 
 "
@@ -16551,7 +16411,7 @@ interleave
 val
 
 
- ’
+ ÷
 concat2
 values(
 
@@ -16564,13 +16424,13 @@ interleave
 var_1230_interleave_0
 axis
 	
-var_9310
-var_1230_cast_fp16
-
+var_9311
+var_1230_cast_fp16
+
 
 
-ï
-ç*'
+ï
+Ä®*'
 name
 
 "
@@ -16586,19 +16446,19 @@ interleave
 
 
 "
-fp32õ
+fp32ú
 cast/
 dtype&
 $
 "var_1230_cast_fp16_to_fp32_dtype_0
 x
 
-var_1230_cast_fp16&
-var_1230
-
+var_1230_cast_fp16'
+var_1230
+
 
-ï
-ç*
+ï
+Ä®*
 name
 
 "	
