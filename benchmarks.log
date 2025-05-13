@@ -1,0 +1,60 @@
+
+Benchmarks complete for /media/carlos/Sabrent/GitHub/Detector-Senales-Trafico/src/../models/best.pt on coco8.yaml at imgsz=160 (26.16s)
+Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed
+                   Format Status❔  Size (MB) metrics/mAP50-95(B) Inference time (ms/im)     FPS
+0                 PyTorch       ✅       18.7                 0.0                   9.91  100.88
+1             TorchScript       ✅       36.9                 0.0                  26.68   37.49
+2                    ONNX       ✅       36.6                 0.0                   4.72  211.79
+3                OpenVINO       ❌        0.0                   -                      -       -
+4                TensorRT       ❌        0.0                   -                      -       -
+5                  CoreML       ❎       18.4                   -                      -       -
+6   TensorFlow SavedModel       ❌        0.0                   -                      -       -
+7     TensorFlow GraphDef       ❌        0.0                   -                      -       -
+8         TensorFlow Lite       ❌        0.0                   -                      -       -
+9     TensorFlow Edge TPU       ❌        0.0                   -                      -       -
+10          TensorFlow.js       ❌        0.0                   -                      -       -
+11           PaddlePaddle       ❌        0.0                   -                      -       -
+12                    MNN       ❌        0.0                   -                      -       -
+13                   NCNN       ❌        0.0                   -                      -       -
+14                    IMX       ❌        0.0                   -                      -       -
+15                   RKNN       ❌        0.0                   -                      -       -
+
+Benchmarks complete for /media/carlos/Sabrent/GitHub/Detector-Senales-Trafico/src/../models/best.pt on coco8.yaml at imgsz=160 (25.05s)
+Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed
+                   Format Status❔  Size (MB) metrics/mAP50-95(B) Inference time (ms/im)     FPS
+0                 PyTorch       ✅       18.7                 0.0                   9.54  104.81
+1             TorchScript       ✅       36.9                 0.0                  29.03   34.45
+2                    ONNX       ✅       36.6                 0.0                    5.4  185.03
+3                OpenVINO       ❌        0.0                   -                      -       -
+4                TensorRT       ❌        0.0                   -                      -       -
+5                  CoreML       ❎       18.4                   -                      -       -
+6   TensorFlow SavedModel       ❌        0.0                   -                      -       -
+7     TensorFlow GraphDef       ❌        0.0                   -                      -       -
+8         TensorFlow Lite       ❌        0.0                   -                      -       -
+9     TensorFlow Edge TPU       ❌        0.0                   -                      -       -
+10          TensorFlow.js       ❌        0.0                   -                      -       -
+11           PaddlePaddle       ❌        0.0                   -                      -       -
+12                    MNN       ❌        0.0                   -                      -       -
+13                   NCNN       ❌        0.0                   -                      -       -
+14                    IMX       ❌        0.0                   -                      -       -
+15                   RKNN       ❌        0.0                   -                      -       -
+
+Benchmarks complete for /media/carlos/Sabrent/GitHub/Detector-Senales-Trafico/src/../models/best.pt on coco8.yaml at imgsz=160 (25.09s)
+Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed
+                   Format Status❔  Size (MB) metrics/mAP50-95(B) Inference time (ms/im)     FPS
+0                 PyTorch       ✅       18.7                 0.0                   9.59  104.23
+1             TorchScript       ✅       36.9                 0.0                  25.92   38.57
+2                    ONNX       ✅       36.6                 0.0                  10.26   97.41
+3                OpenVINO       ❌        0.0                   -                      -       -
+4                TensorRT       ❌        0.0                   -                      -       -
+5                  CoreML       ❎       18.4                   -                      -       -
+6   TensorFlow SavedModel       ❌        0.0                   -                      -       -
+7     TensorFlow GraphDef       ❌        0.0                   -                      -       -
+8         TensorFlow Lite       ❌        0.0                   -                      -       -
+9     TensorFlow Edge TPU       ❌        0.0                   -                      -       -
+10          TensorFlow.js       ❌        0.0                   -                      -       -
+11           PaddlePaddle       ❌        0.0                   -                      -       -
+12                    MNN       ❌        0.0                   -                      -       -
+13                   NCNN       ❌        0.0                   -                      -       -
+14                    IMX       ❌        0.0                   -                      -       -
+15                   RKNN       ❌        0.0                   -                      -       -
