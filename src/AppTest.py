@@ -48,7 +48,7 @@ except ImportError:
     raise SystemExit("No se encontró prediction_app.SignalDetector. Asegúrate de que está en PYTHONPATH.")
 
 print("Cargando modelo… (puede tardar unos segundos)")
-DETECTOR = SignalDetector(MODEL_PATH, [3])
+DETECTOR = SignalDetector(MODEL_PATH, lista_ignorar_clases=[3])
 print("Modelo cargado ✔")
 
 # ────────────────────────────────────────────────────────────────

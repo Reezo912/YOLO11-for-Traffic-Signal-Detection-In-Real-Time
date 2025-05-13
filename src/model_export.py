@@ -37,9 +37,8 @@ model.export(
 # Formato CoreML para MacOs
 model.export(
     format="coreml",
-    opset=12,            # Compatibilidad con ONNX Runtime
     simplify=True,       # Limpia la red para hacerla más ligera
-    imgsz=1024,           # Tamaño base (se puede cambiar luego si usas entrada dinámica)
+    imgsz=1024,           
     # nms=True,           # True para evitar la post-pro manual
     device = 'cpu'
 )
@@ -51,6 +50,16 @@ model.export(
     half=True,                  # Usa FP16 si GPU lo soporta
     device = 'cuda:0',
 )
+
+
+
+""" Con esto exporto los nombres de mis clases para poder usarlo con los modelos en los nuevos formatos"""
+from ultralytics import YOLO
+import json, pathlib
+pathlib.Path("./models/").mkdir(exist_ok=True)
+json.dump(model.names, open("./models/names.json", "w"))
+
+
 
 from ultralytics.utils.benchmarks import benchmark
 benchmark(model=YOLO(MODEL_DIR / "best.onnx"))

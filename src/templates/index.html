@@ -1,52 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Stream en vivo</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-        img {
-            border: 2px solid #555;
-            margin-top: 20px;
-        }
-        form {
-            margin-top: 20px;
-        }
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-            margin: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto de Detección de Señales</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    body{font-family:'Poppins',sans-serif}
+  </style>
 </head>
-<body>
-    <h1>Video en vivo desde la cámara</h1>
+<body class="bg-gray-100 text-gray-800">
+<!-- NAV -->
+<nav class="bg-white shadow-md fixed w-full z-10">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-semibold text-green-600">Detección de Señales</h1>
+    <ul class="flex gap-6">
+      <li><a href="#overview" class="hover:text-green-600">Inicio</a></li>
+      <li><a href="#demo" class="hover:text-green-600">Demo</a></li>
+      <li><a href="#model" class="hover:text-green-600">Modelo</a></li>
+      <li><a href="#contact" class="hover:text-green-600">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <form id="cameraForm">
-        <input type="text" id="ip" name="ip" placeholder="IP de la cámara (opcional)" size="40">
-        <button type="submit">Conectar</button>
-    </form>
+<main class="pt-20">
+  <!-- HERO -->
+  <header id="overview" class="container mx-auto px-6 py-20 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Proyecto de Detección de Señales</h2>
+    <p class="text-xl text-gray-600 mb-10">Selecciona la fuente de vídeo (webcam, IP o archivo) y observa la detección en vivo.</p>
+    <button id="scrollDemo" class="bg-green-600 text-white px-8 py-3 rounded-lg shadow hover:bg-green-500 transition">Ir a Demo</button>
+  </header>
 
-    <img id="videoStream" src="" width="640" height="480" />
+  <!-- DEMO -->
+  <section id="demo" class="container mx-auto px-6 py-16">
+    <h3 class="text-3xl font-semibold text-center mb-8">Demo</h3>
 
-    <script>
-        const form = document.getElementById('cameraForm');
-        const video = document.getElementById('videoStream');
+    <!-- Video placeholder fijo -->
+    <div class="flex justify-center">
+      <img id="videoDisplay" src="" alt="Stream" class="w-[1280px] h-[720px] bg-black rounded shadow-md object-contain"/>
+    </div>
 
-        form.onsubmit = function (e) {
-            e.preventDefault();
-            const ip = document.getElementById('ip').value.trim();
-            const url = '/video' + (ip ? `?ip=${encodeURIComponent(ip)}` : '');
-            video.src = url;
-        };
+    <!-- Controles -->
+    <div class="mt-10 max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-6">
+      <!-- Selector fuente -->
+      <div>
+        <label for="sourceType" class="block mb-2 font-medium">Fuente de vídeo</label>
+        <select id="sourceType" class="w-full border rounded px-3 py-2">
+          <option value="webcam">Webcam</option>
+          <option value="ip">Cámara IP</option>
+          <option value="file">Subir vídeo</option>
+        </select>
+      </div>
 
-        // Carga por defecto la webcam local al iniciar
-        window.onload = () => {
-            video.src = '/video';
-        };
-    </script>
+      <!-- Campos webcam/IP -->
+      <div id="fileFields" class="space-y-4 hidden">
+        <input id="fileInput" type="file" accept="video/*" class="w-full"/>
+        <p id="uploadStatus" class="text-sm text-gray-600"></p>
+      </div>
+      <div id="webcamFields" class="space-y-4">
+        <input id="camId" type="text" placeholder="ID webcam (default 0)" class="w-full border rounded px-3 py-2"/>
+      </div>
+      <div id="ipFields" class="space-y-4 hidden">
+        <input id="ipAddr" type="text" placeholder="IP:puerto o URL completa" class="w-full border rounded px-3 py-2"/>
+      </div>
+
+
+      <!-- Botones -->
+      <div class="flex justify-center gap-4">
+        <button id="startBtn" class="bg-green-600 text-white px-6 py-2 rounded shadow hover:bg-green-500 transition">Iniciar</button>
+        <button id="stopBtn"  class="bg-red-600 text-white  px-6 py-2 rounded shadow hover:bg-red-500 transition">Parar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODEL DESCRIPTION -->
+  <section id="model" class="bg-white py-16">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-semibold text-center mb-12">¿Cómo funciona el modelo?</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Datos -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-3">Dataset</h4>
+          <p class="text-gray-600">2 300 imágenes etiquetadas de señales de tráfico españolas + 800 fotografías propias. Aumento de datos con rotación y condiciones de iluminación.</p>
+        </div>
+        <!-- Arquitectura -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-3">Arquitectura</h4>
+          <p class="text-gray-600">YOLOv8‑n personalizado (9,6M parámetros) finetuneado 50 épocas sobre el dataset. Inferencia &lt; 25 ms/frame en GPU T4.</p>
+        </div>
+        <!-- Métricas -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-3">Resultados</h4>
+          <p class="text-gray-600">mAP@0.5 = 92 %, precisión = 90 %, recall = 89 %. Falsos positivos reducidos con NMS en tiempo real.</p>
+        </div>
+      </div>
+      <!-- Pipeline -->
+      <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-gray-50 p-6 rounded-lg shadow">
+          <h4 class="text-xl font-semibold mb-4">Pipeline en Producción</h4>
+          <ul class="list-disc list-inside text-gray-600 space-y-2">
+            <li>OpenCV captura cada frame &rarr; redimensiona a 640×640.</li>
+            <li>YOLOv8 realiza inferencia; extrae bounding boxes &amp; clase.</li>
+            <li>Señales detectadas se sobreponen en el stream (color según confianza).</li>
+            <li>FPS y estadísticas se imprimen en overlay.</li>
+          </ul>
+        </div>
+        <div class="text-center">
+          <img src="/static/img_example.jpg" alt="Ejemplo de detección" class="rounded shadow mx-auto"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <footer id="contact" class="bg-gray-800 text-gray-200 py-12 text-center">
+    <h4 class="text-2xl font-semibold mb-4">Contacto</h4>
+    <p>Escríbeme a <a href="mailto:tu.email@dominio.com" class="text-green-400 hover:underline">tu.email@dominio.com</a></p>
+  </footer>
+</main>
+
+<script>
+  const qs=id=>document.getElementById(id);
+  const videoDisplay=qs('videoDisplay');
+  const sourceType  =qs('sourceType');
+  const camId       =qs('camId');
+  const ipAddr      =qs('ipAddr');
+  const fileInput   =qs('fileInput');
+  const uploadStatus=qs('uploadStatus');
+  const webcamFields=qs('webcamFields');
+  const ipFields    =qs('ipFields');
+  const fileFields  =qs('fileFields');
+  const startBtn=qs('startBtn');
+  const stopBtn =qs('stopBtn');
+  const scrollDemo=qs('scrollDemo');
+
+  function toggleFields(){
+    webcamFields.classList.add('hidden');
+    ipFields.classList.add('hidden');
+    fileFields.classList.add('hidden');
+    if(sourceType.value==='file')   fileFields.classList.remove('hidden');
+    if(sourceType.value==='webcam') webcamFields.classList.remove('hidden');
+    if(sourceType.value==='ip')     ipFields.classList.remove('hidden');
+  }
+  sourceType.addEventListener('change',toggleFields);toggleFields();
+
+  function buildURL(){
+    let url='/video';const p=[];
+    if(sourceType.value==='webcam'){
+      const c=camId.value.trim();if(c) p.push('camera_id='+encodeURIComponent(c));
+    }else if(sourceType.value==='ip'){
+      const ip=ipAddr.value.trim();if(ip) p.push('ip='+encodeURIComponent(ip));
+    }
+    if(p.length) url+='?'+p.join('&');
+    return url;
+  }
+
+  startBtn.addEventListener('click',async()=>{
+    if(sourceType.value==='file'){
+      const f=fileInput.files[0];if(!f) return alert('Selecciona un vídeo');
+      const fd=new FormData();fd.append('video',f);uploadStatus.textContent='Subiendo…';
+      try{const r=await fetch('/upload',{method:'POST',body:fd});const d=await r.json();
+        if(d.file){uploadStatus.textContent='Subido ✔';videoDisplay.src='/video?file='+encodeURIComponent(d.file);}else throw new Error(d.error||'Fallo');
+      }catch(e){uploadStatus.textContent='Error: '+e.message;}
+    }else{videoDisplay.src=buildURL();}
+  });
+  stopBtn.addEventListener('click',()=>videoDisplay.removeAttribute('src'));
+  scrollDemo.addEventListener('click',()=>document.getElementById('demo').scrollIntoView({behavior:'smooth'}));
+</script>
 </body>
 </html>

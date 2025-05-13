@@ -8,3 +8,4 @@ __pycache__
 /runs
 yolov11s.pt
 data/processed/*.mp4
+src/uploads
