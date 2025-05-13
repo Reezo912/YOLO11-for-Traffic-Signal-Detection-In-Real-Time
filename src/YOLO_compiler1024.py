@@ -10,7 +10,7 @@ settings.update({"tensorboard": True})
 torch.backends.cuda.matmul.allow_tf32 = True
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
 
-# ───────────────────────────── FASE A (0‑90) · 1024 px ────────────────────────────
+# ───────────────────────────── FASE A (0‑90) - 1024 px ────────────────────────────
 model = YOLO("yolo11s.pt")
 #model = YOLO("./runs/detect/train/weights/last.pt")
 
@@ -48,7 +48,7 @@ results_A = model.train(
     seed=42,
 )
 
-# ──────────────────────── FASE B (90‑100) · 1280 px (Fine‑tune) ─────────────────────
+# ──────────────────────── FASE B (90‑100) - 1280 px (Fine‑tune) ─────────────────────
 # Carga los últimos pesos y aumenta la resolución para afinar detalles.
 model = YOLO("./runs/detect/train2/weights/last.pt")
 
@@ -81,7 +81,7 @@ results_B = model.train(
     save_dir="./runs/detect/fine_tunning"
 )
 
-# ───────────────────────────── Validación final ─────────────────────────────────────
+# ───────────────────────────── Validacion final ─────────────────────────────────────
 best = YOLO("./runs/detect/fine_tunning/weights/best.pt")
 metrics = best.val(data=DATA_PATH, plots=True)
 print("mAP50‑95 final:", metrics.box.map)
