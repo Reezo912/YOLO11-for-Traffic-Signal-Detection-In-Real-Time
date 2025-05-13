@@ -71,7 +71,7 @@ class VideoThread(QThread):
             ret, frame = cap.read()
             if not ret:
                 break
-            annotated = DETECTOR.predict_frame(frame, imgsz=IMG_SIZE, conf=CONF, iou=IOU)
+            annotated, _ = DETECTOR.predict_frame(frame, imgsz=IMG_SIZE, conf=CONF, iou=IOU)
             self.frame_ready.emit(annotated)
             # Espera el tiempo restante hasta el siguiente frame
             elapsed = time.time() - t0

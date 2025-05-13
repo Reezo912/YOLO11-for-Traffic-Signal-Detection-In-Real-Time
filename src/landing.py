@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_DIR = BASE_DIR / '../models'
 MODEL_DIR = MODEL_DIR.resolve()
 
-model_version = "best copy.pt"
+model_version = "last.pt"
 
 # Cargar modelo
 model = YOLO(MODEL_DIR / model_version)
@@ -138,10 +138,22 @@ with st.container():
                 img = Image.open(save_path)              # PIL
                 rgb = np.asarray(img.convert("RGB"))     # RGB
                 bgr = cv.cvtColor(rgb, cv.COLOR_RGB2BGR) # YOLO quiere BGR
-                out = detector.predict_frame(bgr, imgsz=680, conf=0.25)
+                start_time = time.time()
+                out, results = detector.predict_frame(bgr, imgsz=1024, conf=0.5)
+                end_time = time.time()
                 st.image(out, caption="Resultado", use_container_width=True)
 
-
+                # Mostrar detalles detectados
+                st.markdown("### 📋 Detalles de los objetos detectados")
+                total_time = end_time - start_time
+                if results[0].boxes is not None and len(results[0].boxes) > 0:
+                    for i, box in enumerate(results[0].boxes):
+                        cls = int(box.cls[0])
+                        conf = float(box.conf[0])
+                        st.write(f"🔹 Objeto {i+1}: Clase: **{model.names[cls]}**, Confianza: **{conf:.2f}** ")
+                    st.write(f"⚠️ Tiempo de carga: **{total_time:.3f}** ")
+                else:
+                    st.write("⚠️ No se detectaron objetos.")
 
 
 # TODO sustituir el video en tiempo real por procesado de video y poder descargarlo posteriormente.
