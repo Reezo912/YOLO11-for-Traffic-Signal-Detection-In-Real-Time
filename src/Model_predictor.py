@@ -5,6 +5,9 @@ from ultralytics import YOLO
 from file_type import detect_file_type  # compruba si el archivo es una imagen o video
 import torch as torch
 
+torch.set_num_threads(1)          # evita picos de RAM
+
+
 class SignalDetector:
     """
     Detector de señales con YOLO.
@@ -15,6 +18,7 @@ class SignalDetector:
 
     def __init__(self, model_path: Union[str, Path], device='cuda:0',lista_ignorar_clases: Optional[List[int]] = None) -> None:
         self.model = YOLO(str(model_path))
+        self.model.fuse(False)               # <<--- desactiva fusión
         #  ⬇️ fuerza GPU si existe, si no se queda en CPU
         if device.startswith("cuda") and torch.cuda.is_available():
             self.model.to(device)
