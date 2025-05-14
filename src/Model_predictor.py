@@ -18,7 +18,6 @@ class SignalDetector:
 
     def __init__(self, model_path: Union[str, Path], device='cuda:0',lista_ignorar_clases: Optional[List[int]] = None) -> None:
         self.model = YOLO(str(model_path))
-        self.model.fuse(False)               # <<--- desactiva fusión
         #  ⬇️ fuerza GPU si existe, si no se queda en CPU
         if device.startswith("cuda") and torch.cuda.is_available():
             self.model.to(device)
