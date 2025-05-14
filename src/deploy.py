@@ -9,7 +9,7 @@ import io
 
 
 
-detector = SignalDetector("models/SignalDetector.pt")
+detector = None
 
 app = Flask(__name__, static_folder="../static", static_url_path="/static")
 UPLOAD_DIR = Path(app.root_path) / "uploads"
@@ -17,6 +17,12 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 
 # ---------- STREAM DE VÍDEO ----------
 q_in = Queue(maxsize=30)          # ~1 s buffer
+
+def get_detector():
+    global detector
+    if detector is None:
+        detector = SignalDetector("models/SignalDetector.pt")
+    return detector
 
 def generate_frames(src: str | os.PathLike):
     cap = cv2.VideoCapture(str(src), cv2.CAP_FFMPEG)
@@ -44,10 +50,10 @@ def generate_frames(src: str | os.PathLike):
 # ---------- PROCESAR IMAGEN ----------
 def process_image(path: Path):
     img = cv2.imread(str(path))
-    rgb, res = detector.predict_frame(img, imgsz=1024, conf=0.25)
+    rgb, res = get_detector().predict_frame(img, imgsz=640, conf=0.25)
     rgb = add_overlay(rgb, res)             
     bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
-    ok, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 90])
+    ok, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 65])
     return io.BytesIO(buf.tobytes()) if ok else None
 
 # ---------- OVERLAY ----------
