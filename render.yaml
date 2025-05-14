@@ -3,5 +3,6 @@ services:
     name: traffic-sign-detector
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: PYTHONPATH=src gunicorn deploy:app
+    startCommand: PYTHONPATH=src gunicorn src.deploy:app
     plan: free
+

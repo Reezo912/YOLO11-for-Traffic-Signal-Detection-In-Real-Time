@@ -31,19 +31,49 @@ def generate_frames(src: str | os.PathLike):
 
     while True:
         frame = q_in.get()
-        rgb, _ = detector.predict_frame(frame, imgsz=1024, conf=0.25)
+        rgb, yolo_res = detector.predict_frame(frame, imgsz=1024, conf=0.25)
+        rgb = add_overlay(rgb, yolo_res)        
         bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
         _, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 75])
         yield (b"--frame\r\nContent-Type: image/jpeg\r\n\r\n" +
                buf.tobytes() + b"\r\n")
+        
 
 # ---------- PROCESAR IMAGEN ----------
 def process_image(path: Path):
     img = cv2.imread(str(path))
-    rgb, _ = detector.predict_frame(img, imgsz=1024, conf=0.25)
+    rgb, res = detector.predict_frame(img, imgsz=1024, conf=0.25)
+    rgb = add_overlay(rgb, res)             
     bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
     ok, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 90])
     return io.BytesIO(buf.tobytes()) if ok else None
+
+# ---------- OVERLAY ----------
+def add_overlay(img_rgb, yolo_res):
+    """
+    Escribe "clase 0.83" por cada detección (máx 10 líneas) en la parte superior
+    izquierda del frame RGB ya anotado.
+    """
+    r = yolo_res[0]
+    if r.boxes is None:                         # nada detectado
+        return img_rgb
+
+    names = detector.model.names               # diccionario id→nombre
+    cls  = r.boxes.cls.cpu().numpy().astype(int)
+    conf = r.boxes.conf.cpu().numpy()
+    lines = [f"{names[c]} {conf[i]:.2f}" for i, c in enumerate(cls)][:10]
+
+    h, w = img_rgb.shape[:2]
+    line_h = 30                               # altura entre líneas
+
+    for i, txt in enumerate(lines[::-1]):     # empezamos por la última
+        (tw, th), _ = cv2.getTextSize(txt, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)
+        x = (w - tw) // 2                     # centrado horizontal
+        y = h - 10 - i * line_h               # 10 px desde abajo, luego hacia arriba
+        cv2.putText(img_rgb, txt, (x, y),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+    return img_rgb
+
 
 # ---------- RUTAS ----------
 @app.route("/")
