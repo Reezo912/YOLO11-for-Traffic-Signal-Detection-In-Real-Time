@@ -5,5 +5,5 @@ ultralytics
 streamlit
 numpy
 turbojpeg
-opencv-python
 flask
+gunicorn
