@@ -33,7 +33,7 @@ def generate_frames(src: str | os.PathLike):
 
     while True:
         frame = q_in.get()
-        rgb, yolo_res = detector.predict_frame(frame, imgsz=1024, conf=0.25)
+        rgb, yolo_res = detector.predict_frame(frame, imgsz=640, conf=0.25)
         rgb = add_overlay(rgb, yolo_res)        
         bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
         _, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 75])
