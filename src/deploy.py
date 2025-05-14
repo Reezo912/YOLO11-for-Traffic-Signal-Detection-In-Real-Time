@@ -1,89 +1,79 @@
-import os, time
+import os, time, cv2
 from threading import Thread
 from queue import Queue
-
-import cv2
-from flask import Flask, render_template, Response, request, jsonify
-
+from flask import Flask, render_template, Response, request, jsonify, send_file
 from Model_predictor import SignalDetector
-detector = SignalDetector("./models/SignalDetector.pt")
+from pathlib import Path
+import numpy as np
+import io
+
+detector = SignalDetector("models/SignalDetector.pt")
 
 app = Flask(__name__, static_folder="../static", static_url_path="/static")
-UPLOAD_DIR = os.path.join(app.root_path, "uploads")
-os.makedirs(UPLOAD_DIR, exist_ok=True)
+UPLOAD_DIR = Path(app.root_path) / "uploads"
+UPLOAD_DIR.mkdir(exist_ok=True)
 
-q_in = Queue(maxsize=30)  # ~1 s de búfer a 30 FPS
+# ---------- STREAM DE VÍDEO ----------
+q_in = Queue(maxsize=30)          # ~1 s buffer
 
-# ────────────────────────────────────────────────
-def generate_frames(src):
-    cap = cv2.VideoCapture(src, cv2.CAP_FFMPEG)
+def generate_frames(src: str | os.PathLike):
+    cap = cv2.VideoCapture(str(src), cv2.CAP_FFMPEG)
     if not cap.isOpened():
-        raise RuntimeError(f"No se pudo abrir la fuente: {src}")
+        raise RuntimeError(f"No se pudo abrir: {src}")
 
-    # lector en hilo aparte (solo decodifica)
     def reader():
         while True:
             ok, f = cap.read()
-            if not ok:
-                if cap.get(cv2.CAP_PROP_POS_FRAMES) >= cap.get(
-                    cv2.CAP_PROP_FRAME_COUNT
-                ):
-                    cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-                continue
+            if not ok:                                 # loop si acaba
+                cap.set(cv2.CAP_PROP_POS_FRAMES, 0); continue
             q_in.put(f)
-
     Thread(target=reader, daemon=True).start()
 
-    # bucle principal: inferencia GPU + JPEG OpenCV
     while True:
-        frame = q_in.get()  # bloquea hasta tener frame
-        annotated_rgb, _ = detector.predict_frame(frame, imgsz=1024, conf=0.25)
-        bgr = cv2.cvtColor(annotated_rgb, cv2.COLOR_RGB2BGR)
+        frame = q_in.get()
+        rgb, _ = detector.predict_frame(frame, imgsz=1024, conf=0.25)
+        bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
+        _, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 75])
+        yield (b"--frame\r\nContent-Type: image/jpeg\r\n\r\n" +
+               buf.tobytes() + b"\r\n")
 
-        _, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 80])
-        yield (
-            b"--frame\r\nContent-Type: image/jpeg\r\n\r\n"
-            + buf.tobytes()
-            + b"\r\n"
-        )
+# ---------- PROCESAR IMAGEN ----------
+def process_image(path: Path):
+    img = cv2.imread(str(path))
+    rgb, _ = detector.predict_frame(img, imgsz=1024, conf=0.25)
+    bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
+    ok, buf = cv2.imencode(".jpg", bgr, [cv2.IMWRITE_JPEG_QUALITY, 90])
+    return io.BytesIO(buf.tobytes()) if ok else None
 
-
-# ────────────────────────────────────────────────
+# ---------- RUTAS ----------
 @app.route("/")
-def index():
-    return render_template("index.html")
-
+def index(): return render_template("index.html")
 
 @app.post("/upload")
 def upload():
-    f = request.files.get("video")
-    if not f or f.filename == "":
+    f = request.files.get("file")
+    if not f or f.filename == "":  # sirve para jpg/png/mp4
         return jsonify({"error": "no file"}), 400
     name = f"{int(time.time())}_{f.filename}"
-    f.save(os.path.join(UPLOAD_DIR, name))
+    dest = UPLOAD_DIR / name
+    f.save(dest)
     return jsonify({"file": name})
-
 
 @app.route("/video")
 def video():
-    file = request.args.get("file", "").strip()
-    ip = request.args.get("ip", "").strip()
-    cam = request.args.get("camera_id", "").strip()
+    file = request.args.get("file", "")
+    path = UPLOAD_DIR / file
+    if not path.exists(): return "missing", 404
+    return Response(generate_frames(path),
+                    mimetype="multipart/x-mixed-replace; boundary=frame")
 
-    if file:
-        src = os.path.join(UPLOAD_DIR, file)
-    elif ip:
-        src = f"http://{ip}/video" if not ip.startswith("http") else ip
-    elif cam.isdigit():
-        src = int(cam)
-    else:
-        src = 0
-
-    return Response(
-        generate_frames(src),
-        mimetype="multipart/x-mixed-replace; boundary=frame",
-    )
-
+@app.route("/image")
+def image():
+    file = request.args.get("file", "")
+    path = UPLOAD_DIR / file
+    if not path.exists(): return "missing", 404
+    buf = process_image(path)
+    return send_file(buf, mimetype="image/jpeg")
 
 if __name__ == "__main__":
     app.run(debug=True)

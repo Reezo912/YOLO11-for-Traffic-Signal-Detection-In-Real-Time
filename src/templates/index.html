@@ -28,7 +28,7 @@
   <!-- HERO -->
   <header id="overview" class="container mx-auto px-6 py-20 text-center">
     <h2 class="text-4xl md:text-5xl font-bold mb-6">Proyecto de Detección de Señales</h2>
-    <p class="text-xl text-gray-600 mb-10">Selecciona la fuente de vídeo (webcam, IP o archivo) y observa la detección en vivo.</p>
+    <p class="text-xl text-gray-600 mb-10">Sube un vídeo o imagen y observa la detección en vivo.</p>
     <button id="scrollDemo" class="bg-green-600 text-white px-8 py-3 rounded-lg shadow hover:bg-green-500 transition">Ir a Demo</button>
   </header>
 
@@ -36,43 +36,23 @@
   <section id="demo" class="container mx-auto px-6 py-16">
     <h3 class="text-3xl font-semibold text-center mb-8">Demo</h3>
 
-    <!-- Video placeholder fijo -->
+    <!-- Contenedor de resultado -->
     <div class="flex justify-center">
-      <img id="videoDisplay" src="" alt="Stream" class="w-[1280px] h-[720px] bg-black rounded shadow-md object-contain"/>
+      <img id="display" src="" alt="Vista" class="w-[1280px] h-[720px] bg-black rounded shadow-md object-contain"/>
     </div>
 
-    <!-- Controles -->
-    <div class="mt-10 max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-6">
-      <!-- Selector fuente -->
-      <div>
-        <label for="sourceType" class="block mb-2 font-medium">Fuente de vídeo</label>
-        <select id="sourceType" class="w-full border rounded px-3 py-2">
-          <option value="webcam">Webcam</option>
-          <option value="ip">Cámara IP</option>
-          <option value="file">Subir vídeo</option>
-        </select>
-      </div>
+    <!-- Subida -->
+    <div class="mt-10 max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-4">
+      <input id="fileInput" type="file" accept="image/*,video/*" class="w-full border rounded px-3 py-2"/>
+      <p id="status" class="text-sm text-gray-600"></p>
 
-      <!-- Campos webcam/IP -->
-      <div id="fileFields" class="space-y-4 hidden">
-        <input id="fileInput" type="file" accept="video/*" class="w-full"/>
-        <p id="uploadStatus" class="text-sm text-gray-600"></p>
-      </div>
-      <div id="webcamFields" class="space-y-4">
-        <input id="camId" type="text" placeholder="ID webcam (default 0)" class="w-full border rounded px-3 py-2"/>
-      </div>
-      <div id="ipFields" class="space-y-4 hidden">
-        <input id="ipAddr" type="text" placeholder="IP:puerto o URL completa" class="w-full border rounded px-3 py-2"/>
-      </div>
-
-
-      <!-- Botones -->
       <div class="flex justify-center gap-4">
-        <button id="startBtn" class="bg-green-600 text-white px-6 py-2 rounded shadow hover:bg-green-500 transition">Iniciar</button>
-        <button id="stopBtn"  class="bg-red-600 text-white  px-6 py-2 rounded shadow hover:bg-red-500 transition">Parar</button>
+        <button id="playBtn" class="bg-green-600 text-white px-6 py-2 rounded shadow">Procesar</button>
+        <button id="stopBtn" class="bg-red-600 text-white px-6 py-2 rounded shadow">Parar</button>
       </div>
     </div>
   </section>
+
 
   <!-- MODEL DESCRIPTION -->
   <section id="model" class="bg-white py-16">
@@ -120,53 +100,32 @@
   </footer>
 </main>
 
-<script>
-  const qs=id=>document.getElementById(id);
-  const videoDisplay=qs('videoDisplay');
-  const sourceType  =qs('sourceType');
-  const camId       =qs('camId');
-  const ipAddr      =qs('ipAddr');
-  const fileInput   =qs('fileInput');
-  const uploadStatus=qs('uploadStatus');
-  const webcamFields=qs('webcamFields');
-  const ipFields    =qs('ipFields');
-  const fileFields  =qs('fileFields');
-  const startBtn=qs('startBtn');
-  const stopBtn =qs('stopBtn');
-  const scrollDemo=qs('scrollDemo');
+  <script>
+    const disp   = document.getElementById('display');
+    const finput = document.getElementById('fileInput');
+    const status = document.getElementById('status');
+    const play   = document.getElementById('playBtn');
+    const stop   = document.getElementById('stopBtn');
+    const scroll = document.getElementById('scrollDemo');
 
-  function toggleFields(){
-    webcamFields.classList.add('hidden');
-    ipFields.classList.add('hidden');
-    fileFields.classList.add('hidden');
-    if(sourceType.value==='file')   fileFields.classList.remove('hidden');
-    if(sourceType.value==='webcam') webcamFields.classList.remove('hidden');
-    if(sourceType.value==='ip')     ipFields.classList.remove('hidden');
-  }
-  sourceType.addEventListener('change',toggleFields);toggleFields();
+    play.onclick = async () => {
+      const f = finput.files[0];
+      if (!f) { alert('Selecciona un archivo'); return; }
+      const fd = new FormData(); fd.append('file', f);
+      status.textContent = 'Subiendo…';
+      try {
+        const r = await fetch('/upload', { method:'POST', body: fd });
+        const j = await r.json();
+        if (j.file) {
+          const url = (f.type.startsWith('video') ? '/video?file=' : '/image?file=') + encodeURIComponent(j.file);
+          disp.src = url;
+          status.textContent = 'Procesando…';
+        } else throw new Error(j.error || 'fallo');
+      } catch(e){ status.textContent = 'Error: '+e.message; }
+    };
 
-  function buildURL(){
-    let url='/video';const p=[];
-    if(sourceType.value==='webcam'){
-      const c=camId.value.trim();if(c) p.push('camera_id='+encodeURIComponent(c));
-    }else if(sourceType.value==='ip'){
-      const ip=ipAddr.value.trim();if(ip) p.push('ip='+encodeURIComponent(ip));
-    }
-    if(p.length) url+='?'+p.join('&');
-    return url;
-  }
-
-  startBtn.addEventListener('click',async()=>{
-    if(sourceType.value==='file'){
-      const f=fileInput.files[0];if(!f) return alert('Selecciona un vídeo');
-      const fd=new FormData();fd.append('video',f);uploadStatus.textContent='Subiendo…';
-      try{const r=await fetch('/upload',{method:'POST',body:fd});const d=await r.json();
-        if(d.file){uploadStatus.textContent='Subido ✔';videoDisplay.src='/video?file='+encodeURIComponent(d.file);}else throw new Error(d.error||'Fallo');
-      }catch(e){uploadStatus.textContent='Error: '+e.message;}
-    }else{videoDisplay.src=buildURL();}
-  });
-  stopBtn.addEventListener('click',()=>videoDisplay.removeAttribute('src'));
-  scrollDemo.addEventListener('click',()=>document.getElementById('demo').scrollIntoView({behavior:'smooth'}));
-</script>
+    stop.onclick = () => disp.removeAttribute('src');
+    scroll.onclick = () => document.getElementById('demo').scrollIntoView({behavior:'smooth'});
+  </script>
 </body>
 </html>
