@@ -33,7 +33,7 @@ from PySide6.QtWidgets import (
 # ────────────────────────────────────────────────────────────────
 #  AJUSTES RÁPIDOS
 # ────────────────────────────────────────────────────────────────
-MODEL_PATH = Path("./runs/detect/fine_tunning/weights/last.pt")   # cambia si lo tienes en otro sitio
+MODEL_PATH = Path("./models/SignalDetector.pt")   # cambia si lo tienes en otro sitio
 IMG_SIZE   = 1024                        # resolución de entrada YOLO
 CONF       = 0.25                        # umbral de confianza
 IOU        = 0.7                       # NMS IoU
