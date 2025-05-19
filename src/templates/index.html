@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Proyecto Signal Detection</title>
+  <title>Signal Detection in Real-Time</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
@@ -15,7 +15,6 @@
       background-color: #1a202c; /* bg-gray-900 */
       color: #cbd5e1; /* text-slate-300 */
     }
-    /* Cambios para navbar en modo oscuro */
     nav.dark {
       background-color: #2d3748; /* bg-gray-800 */
       box-shadow: 0 2px 4px rgba(0,0,0,0.6);
@@ -23,16 +22,37 @@
     nav.dark a:hover {
       color: #68d391; /* verde claro para hover */
     }
-    /* Otros ajustes opcionales en modo oscuro */
     section.dark, footer.dark {
       background-color: #2d3748;
       color: #cbd5e1;
+    }
+    section#demo.dark .bg-white,
+    section#model.dark .bg-gray-50 {
+      background-color: #1a202c;
+    }
+    section#demo.dark .bg-white .text-gray-600,
+    section#model.dark .bg-gray-50 .text-gray-600 {
+      color: #cbd5e1 !important;
+    }
+
+    /* ESTILOS PARA EL PLACEHOLDER DEL VISOR DE IMAGEN/VIDEO */
+    #display.placeholder-active {
+      /* !!! REEMPLAZA ESTA URL por la ruta a TU imagen de placeholder !!! */
+      background-image: url('/static/placeholder-img.jpeg'); 
+      background-size: cover; 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #222; /* Color de fondo si la imagen no carga */
+    }
+
+    #display.media-active {
+      background-image: none; /* Sin imagen de fondo cuando hay contenido */
+      background-color: #000000; /* Fondo negro para letterboxing del video/imagen */
     }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-<!-- NAV -->
 <nav id="navbar" class="bg-white shadow-md fixed w-full z-10">
   <div class="container mx-auto px-6 py-4 flex justify-between items-center">
     <h1 class="text-2xl font-semibold text-green-600">Signal Detection</h1>
@@ -48,23 +68,18 @@
 </nav>
 
 <main id="mainContent" class="pt-20">
-  <!-- HERO -->
-  <header id="overview" class="container mx-auto px-6 py-20 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-6">Proyecto Signal Detection</h2>
-    <p class="text-xl text-gray-600 mb-10">Sube un vídeo o imagen y observa la detección en vivo.</p>
-  <!--  <button id="scrollDemo" class="bg-green-600 text-white px-8 py-3 rounded-lg shadow hover:bg-green-500 transition">Ir a Demo</button> -->
+  <header id="overview" class="container mx-auto px-6 py-14 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Signal Detection in Real-Time</h2>
+    <p class="text-xl text-gray-600 mb-2">Sube un vídeo o imagen y observa la detección en vivo.</p>
   </header>
 
-  <!-- DEMO -->
-  <section id="demo" class="container mx-auto px-6 py-16 bg-white rounded shadow">
-    <h3 class="text-3xl font-semibold text-center mb-8">Demo</h3>
+  <section id="demo" class="container mx-auto px-6 py-10 bg-white rounded shadow">
+    <h3 class="text-3xl font-semibold text-center mb-8">Demostración</h3>
 
-    <!-- Contenedor de resultado -->
     <div class="flex justify-center">
-      <img id="display" src="" alt="Vista" class="w-[1280px] h-[720px] bg-black rounded shadow-md object-contain" />
+      <img id="display" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Vista" class="w-[1280px] h-[720px] rounded shadow-md object-contain placeholder-active" />
     </div>
 
-    <!-- Subida -->
     <div class="mt-10 max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-4">
       <input id="fileInput" type="file" accept="image/*,video/*" class="w-full border rounded px-3 py-2" />
       <p id="status" class="text-sm text-gray-600"></p>
@@ -76,45 +91,48 @@
     </div>
   </section>
 
-  <!-- MODEL DESCRIPTION -->
   <section id="model" class="bg-white py-16 rounded shadow mt-16">
     <div class="container mx-auto px-6">
-      <h3 class="text-3xl font-semibold text-center mb-12">¿Cómo funciona el modelo?</h3>
+      <h3 class="text-3xl font-semibold text-center mb-12">Conoce un poco más de nuestro modelo</h3>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-3">Dataset</h4>
-          <p class="text-gray-600">2 300 imágenes etiquetadas de señales de tráfico españolas + 800 fotografías propias. Aumento de datos con rotación y condiciones de iluminación.</p>
+          <p class="text-gray-600">Hemos utilizado el MTSD con 52,453 imágenes y 257,543 etiquetas de señales de tráfico de alrededor de todo el mundo. Hemos hecho augmentations para mejorar la precision del modelo.</p>
         </div>
         <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-3">Arquitectura</h4>
-          <p class="text-gray-600">YOLOv8‑n personalizado (9,6M parámetros) finetuneado 50 épocas sobre el dataset. Inferencia &lt; 25 ms/frame en GPU T4.</p>
+          <p class="text-gray-600">YOLO11s con 9.4M de parámetros. Entrenado desde 0 con 120 epochs sobre el dataset. Fine tunning a resolucion 1280 con 30 epochs.</p>
         </div>
         <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-3">Resultados</h4>
-          <p class="text-gray-600">mAP@0.5 = 92 %, precisión = 90 %, recall = 89 %. Falsos positivos reducidos con NMS en tiempo real.</p>
+          <p class="text-gray-600">Resultados finales de mAP50 = 0.62, mAP95=0.50, precision=0.74, recall=0.55.<br> Teniendo unos resultados iniciales de mAP50=0.3, recall=0.23 y precision=0.45.</p>
         </div>
       </div>
       <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
         <div class="bg-gray-50 p-6 rounded-lg shadow">
           <h4 class="text-xl font-semibold mb-4">Pipeline en Producción</h4>
           <ul class="list-disc list-inside text-gray-600 space-y-2">
-            <li>OpenCV captura cada frame &rarr; redimensiona a 640×640.</li>
-            <li>YOLOv8 realiza inferencia; extrae bounding boxes &amp; clase.</li>
-            <li>Señales detectadas se sobreponen en el stream (color según confianza).</li>
-            <li>FPS y estadísticas se imprimen en overlay.</li>
+            <li>OpenCV captura cada frame &rarr; redimensiona a&nbsp;1024×1024.</li>
+            <li>YOLO11s realiza inferencia; extrae bounding boxes y clases.</li>
+            <li>Señales detectadas se sobreponen en el stream (color según tipo de señal).</li>
+            <li>Estadísticas se imprimen en overlay.</li>
           </ul>
         </div>
         <div class="text-center">
-          <img src="/static/img_example.jpg" alt="Ejemplo de detección" class="rounded shadow mx-auto" />
+           <img src="/static/img_example.jpg" alt="Ejemplo de detección" class="rounded shadow mx-auto" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACTO -->
   <footer id="contact" class="bg-gray-800 text-gray-200 py-12 text-center mt-16 rounded">
     <h4 class="text-2xl font-semibold mb-4">Contacto</h4>
-    <p>Escríbeme a <a href="mailto:tu.email@dominio.com" class="text-green-400 hover:underline">signal.detection@traffic.com</a></p>
+    <p>
+      Escribenos a:<br>
+      <a href="https://www.linkedin.com/in/victorbryantcuadrosreyes/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">Victor Bryant Cuadros Reyes</a><br>
+      <a href="https://www.linkedin.com/in/juandamasa/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">Juan Marín</a><br>
+      <a href="https://www.linkedin.com/in/carlos-lopez-de-lizaga/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">Carlos López de Lizaga</a>
+    </p>
   </footer>
 </main>
 
@@ -124,18 +142,19 @@
   const status = document.getElementById('status');
   const play = document.getElementById('playBtn');
   const stop = document.getElementById('stopBtn');
-  const scroll = document.getElementById('scrollDemo');
+  const scrollBtn = document.getElementById('scrollDemo'); // El botón está comentado en el HTML
   const themeToggle = document.getElementById('themeToggle');
   const navbar = document.getElementById('navbar');
-  const mainContent = document.getElementById('mainContent');
+  const demoSection = document.getElementById('demo'); 
   const modelSection = document.getElementById('model');
   const contactFooter = document.getElementById('contact');
 
-  // Función para alternar tema claro/oscuro
+  const transparentPixel = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
   themeToggle.onclick = () => {
     document.body.classList.toggle('dark');
     navbar.classList.toggle('dark');
-    mainContent.classList.toggle('dark');
+    demoSection.classList.toggle('dark'); 
     modelSection.classList.toggle('dark');
     contactFooter.classList.toggle('dark');
 
@@ -160,16 +179,40 @@
       const j = await r.json();
       if (j.file) {
         const url = (f.type.startsWith('video') ? '/video?file=' : '/image?file=') + encodeURIComponent(j.file);
-        disp.src = url;
+        disp.src = url; // Carga el video/imagen real
         status.textContent = 'Procesando…';
+        disp.classList.remove('placeholder-active');
+        disp.classList.add('media-active'); 
       } else throw new Error(j.error || 'fallo');
     } catch (e) {
       status.textContent = 'Error: ' + e.message;
+      // Opcional: si hay error, volver al placeholder y pixel transparente
+      disp.src = transparentPixel;
+      disp.classList.remove('media-active');
+      disp.classList.add('placeholder-active');
     }
   };
 
-  stop.onclick = () => disp.removeAttribute('src');
-  scroll.onclick = () => document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+  stop.onclick = () => {
+    disp.src = transparentPixel; // CORREGIDO: Usar pixel transparente
+    status.textContent = 'Video/imagen detenido. Selecciona un archivo.'; 
+    disp.classList.remove('media-active');
+    disp.classList.add('placeholder-active'); 
+  };
+  
+  if (scrollBtn) { 
+    scrollBtn.onclick = () => document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Opcional: actualizar estado cuando se selecciona un archivo
+  finput.onchange = () => {
+    if (finput.files.length > 0) {
+      status.textContent = `Archivo '${finput.files[0].name}' seleccionado. Pulsa "Procesar".`;
+    } else {
+      status.textContent = 'Ningún archivo seleccionado.';
+    }
+  };
+
 </script>
 
 </body>
