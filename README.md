@@ -70,9 +70,9 @@ En local
 Este repositorio ha sido creado como parte del Bootcamp de 4Geeks Academy.
 Equipo:
 
-    https://github.com/Reezo912
-    https://github.com/JaironMark
-    https://github.com/Vic1CR
+- https://github.com/Reezo912
+- https://github.com/JaironMark
+- https://github.com/Vic1CR
     
     
 Y un especial agradecimiento a nuestros profesores Alessandro Batini y Carlos Vazquez por el tiempo y dedicación en ayudarnos con nuestro proyecto.
