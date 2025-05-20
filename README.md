@@ -10,6 +10,7 @@ El proyecto está organizado de la siguiente manera:
 
 - **`data/`** → Almacena datasets usados y generados.
 - **`src/deploy.py`** → Script principal para lanzar la aplicación (backend).
+- **`src/AppTest.py`** → Sirve para testear en local con un proyecto de App que teniamos en mente, sin necesidad de desplegar la web.
 - **`src/Model_predictor.py, YOLO_compiler1024.py, etc`** → Módulos y utilidades del pipeline.
 - **`src/preprocess.py`** → Procesamiento previo de imágenes.
 - **`src/test_model.py`** → Scripts de prueba unitaria y validación de modelos.
