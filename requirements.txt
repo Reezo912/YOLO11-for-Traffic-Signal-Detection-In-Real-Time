@@ -5,3 +5,5 @@ ultralytics
 streamlit
 numpy
 turbojpeg
+flask
+gunicorn
