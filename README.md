@@ -34,7 +34,6 @@ Además, realizamos técnicas de augmentation para mejorar la precisión del mod
     Entrenado desde cero por 120 epochs
     Fine tuning a resolución 1280×1280 por 30 epochs adicionales
 
-
 ## 📊 Resultados Obtenidos
 
     mAP50: 0.62
@@ -66,7 +65,6 @@ En local
       python src/deploy.py
   - Abre tu navegador en http://127.0.0.1:5000/
 
-## 👨‍💻 Contribuidores
 
 Este repositorio ha sido creado como parte del Bootcamp de 4Geeks Academy.
 Equipo:
