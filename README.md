@@ -56,6 +56,9 @@ Resultados iniciales:
     Estadísticas (counts, FPS, etc.) se muestran como un overlay gráfico.
 
 ## 🚀 Ejecución de la Aplicación
+En linea
+   - https://github.com/Reezo912/Detector-Senales-Trafico
+
 En local
 
   - Clona este repositorio
