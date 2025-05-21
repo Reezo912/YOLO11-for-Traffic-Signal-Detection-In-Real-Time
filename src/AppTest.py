@@ -33,8 +33,8 @@ from PySide6.QtWidgets import (
 # ────────────────────────────────────────────────────────────────
 #  AJUSTES RÁPIDOS
 # ────────────────────────────────────────────────────────────────
-MODEL_PATH = Path("./models/best.pt")   # cambia si lo tienes en otro sitio
-IMG_SIZE   = 640                        # resolución de entrada YOLO
+MODEL_PATH = Path("./runs/detect/fine_tunning/weights/last.pt")   # cambia si lo tienes en otro sitio
+IMG_SIZE   = 1024                        # resolución de entrada YOLO
 CONF       = 0.25                        # umbral de confianza
 IOU        = 0.7                       # NMS IoU
 DEVICE     = "cpu"                      # "mps" en Mac M‑series; "cpu" si fallase
@@ -48,7 +48,7 @@ except ImportError:
     raise SystemExit("No se encontró prediction_app.SignalDetector. Asegúrate de que está en PYTHONPATH.")
 
 print("Cargando modelo… (puede tardar unos segundos)")
-DETECTOR = SignalDetector(MODEL_PATH, [3])
+DETECTOR = SignalDetector(MODEL_PATH, lista_ignorar_clases=[3])
 print("Modelo cargado ✔")
 
 # ────────────────────────────────────────────────────────────────
@@ -71,7 +71,7 @@ class VideoThread(QThread):
             ret, frame = cap.read()
             if not ret:
                 break
-            annotated = DETECTOR.predict_frame(frame, imgsz=IMG_SIZE, conf=CONF, iou=IOU)
+            annotated, _ = DETECTOR.predict_frame(frame, imgsz=IMG_SIZE, conf=CONF, iou=IOU)
             self.frame_ready.emit(annotated)
             # Espera el tiempo restante hasta el siguiente frame
             elapsed = time.time() - t0
