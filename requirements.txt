@@ -1,3 +1,9 @@
 opencv-python
-Pillow
+pillow
 tqdm
+ultralytics
+streamlit
+numpy
+turbojpeg
+flask
+gunicorn

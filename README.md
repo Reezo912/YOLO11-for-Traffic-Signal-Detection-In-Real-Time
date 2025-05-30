@@ -1,51 +1,80 @@
-# Data Science Project Boilerplate
+# Signal Detection in Real-Time
 
-This boilerplate is designed to kickstart data science projects by providing a basic setup for database connections, data processing, and machine learning model development. It includes a structured folder organization for your datasets and a set of pre-defined Python packages necessary for most data science tasks.
+Sube un vídeo o imagen y observa la detección en vivo.
 
-## Structure
+¡Bienvenido a Signal Detection in Real-Time! Este proyecto permite la detección de señales de tráfico en imágenes y vídeo en tiempo real usando YOLO11s optimizado. .
 
-The project is organized as follows:
+## 🗂️ Estructura del Proyecto
 
-- **`src/app.py`** → Main Python script where your project will run.
-- **`src/explore.ipynb`** → Notebook for exploration and testing. Once exploration is complete, migrate the clean code to `app.py`.
-- **`src/utils.py`** → Auxiliary functions, such as database connection.
-- **`requirements.txt`** → List of required Python packages.
-- **`models/`** → Will contain your SQLAlchemy model classes.
-- **`data/`** → Stores datasets at different stages:
-  - **`data/raw/`** → Raw data.
-  - **`data/interim/`** → Temporarily transformed data.
-  - **`data/processed/`** → Data ready for analysis.
+El proyecto está organizado de la siguiente manera:
+
+- **`data/`** → Almacena datasets usados y generados.
+- **`src/deploy.py`** → Script principal para lanzar la aplicación (backend).
+- **`src/AppTest.py`** → Sirve para testear en local con un proyecto de App que teniamos en mente, sin necesidad de desplegar la web.
+- **`src/Model_predictor.py, YOLO_compiler1024.py, etc`** → Módulos y utilidades del pipeline.
+- **`src/preprocess.py`** → Procesamiento previo de imágenes.
+- **`src/test_model.py`** → Scripts de prueba unitaria y validación de modelos.
+- **`src/templates/index.html`** → Página web principal donde puedes subir imágenes o vídeos y ver la inferencia en vivo.
+- **`requirements.txt`** → Paquetes Python requeridos por el proyecto.
+- **`models/`** → Pesos y checkpoints de los modelos entrenados.
+
+## 🧠 Dataset
+
+Hemos utilizado el dataset MTSD (Mapillary Traffic Sign Dataset), que contiene:
+
+    52,453 imágenes
+
+    257,543 etiquetas de señales de tráfico de diferentes regiones del mundo
+
+Además, realizamos técnicas de augmentation para mejorar la precisión del modelo.
+
+## 🏗️ Arquitectura del Modelo
+
+    YOLO11s → 9.4M parámetros
+    Entrenado desde cero por 120 epochs
+    Fine tuning a resolución 1280×1280 por 30 epochs adicionales
+
+## 📊 Resultados Obtenidos
+
+    mAP50: 0.62
+    mAP95: 0.50
+    Precisión: 0.74
+    Recall: 0.55
+
+Resultados iniciales:
+
+    mAP50: 0.3
+    Recall: 0.23
+    Precisión: 0.45
+
+## ⚙️ Pipeline en Producción
+
+    OpenCV captura cada frame o recibe la imagen/vídeo a analizar.
+    El frame se redimensiona a 1024×1024.
+    YOLO11s realiza inferencia: bounding boxes y clases.
+    Las señales detectadas se sobreponen en el stream (color por tipo de señal).
+    Estadísticas (counts, FPS, etc.) se muestran como un overlay gráfico.
+
+## 🚀 Ejecución de la Aplicación
+En linea
+   - https://github.com/Reezo912/Detector-Senales-Trafico
+
+En local
+
+  - Clona este repositorio
+  - Instala dependencias:
+      pip install -r requirements.txt
+  - Desde la carpeta raíz o desde src/, ejecuta:
+      python src/deploy.py
+  - Abre tu navegador en http://127.0.0.1:5000/
 
 
-## ⚡ Initial Setup in Codespaces (Recommended)
+Este repositorio ha sido creado como parte del Bootcamp de 4Geeks Academy.
+Equipo:
 
-
-
-## 💻 Local Setup (Only if you can't use Codespaces)
-
-
-
-**Create a database (if necessary)**
-
-
-
-**Environment Variables**
-
-Create a .env file in the root directory of the project to store your environment variables, such as your database connection string:
-
-
-## Running the Application
-
-
-
-## Adding Models
-
-
-## Working with Data
-
-
-## Contributors
-
-This template was built as part of the [Data Science and Machine Learning Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning) by 4Geeks Academy by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Learn more about [4Geeks Academy BootCamp programs](https://4geeksacademy.com/us/programs) here.
-
-Other templates and resources like this can be found on the school's GitHub page.
+- https://github.com/Reezo912
+- https://github.com/JaironMark
+- https://github.com/Vic1CR
+    
+    
+Y un especial agradecimiento a nuestros profesores Alessandro Batini y Carlos Vazquez por el tiempo y dedicación en ayudarnos con nuestro proyecto.
