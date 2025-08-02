@@ -57,7 +57,7 @@ Resultados iniciales:
 
 ## 🚀 Ejecución de la Aplicación
 En linea
-   - https://github.com/Reezo912/Detector-Senales-Trafico
+   - https://detector-senales-trafico.onrender.com/
 
 En local
 
@@ -78,3 +78,4 @@ Equipo:
     
     
 Y un especial agradecimiento a nuestros profesores Alessandro Batini y Carlos Vazquez por el tiempo y dedicación en ayudarnos con nuestro proyecto.
+
